@@ -1,0 +1,44 @@
+
+@font-face {
+    font-family: 'Courier New Custom';
+    src: url('./assets/fonts/courier-new/cour.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'VT323 Custom';
+    src: url('./assets/fonts/VT323/VT323-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    cursor: url('assets/cursors/mouse-pixel.cur'), auto;
+    background-color: black;
+    color: white; 
+    margin: 0; 
+    font-family: 'Courier New Custom', Courier, monospace; 
+  
+  }
+  a, button, .cursor-pointer {
+    cursor: url('assets/cursors/default_link.cur'), pointer;
+  }
+  .grainy-overlay::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url('assets/images/vhs.jpg'); 
+    opacity: 0.0;
+    mix-blend-mode: multiply;
+    background-repeat: repeat;
+  } 
+
+  .sidebar-layout-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }

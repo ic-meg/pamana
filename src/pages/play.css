@@ -1,0 +1,83 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+  }
+  
+.play-screen {
+    @apply h-screen w-screen overflow-hidden bg-[radial-gradient(circle,_#000000_0%,_#3533CD_100%)] flex items-center justify-center font-mono text-center;
+    font-family: 'Courier New Custom', monospace;
+  }
+  
+  .vinyl-wrapper {
+    @apply flex items-center justify-center w-[300px] sm:w-[400px] md:w-[500px] cursor-pointer;
+  }
+  
+  .vinyl-image {
+    @apply w-full;
+  }
+  
+  .play-text {
+    cursor: ;
+    @apply pointer-events-none absolute top-[25%] left-1/2 -translate-x-1/2 text-white text-xl sm:text-2xl font-bold tracking-widest uppercase z-10;
+  }
+  
+  .click-to-play {
+    @apply absolute top-6 left-1/2 -translate-x-1/2 text-white text-base sm:text-lg font-semibold tracking-wide uppercase;
+    font-family: 'Courier New Custom', monospace;
+  }
+
+  @keyframes retroBootIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px); 
+      filter: brightness(50%) blur(3px);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05) translateY(0);
+      filter: brightness(110%) blur(0);
+    }
+    100% {
+      transform: scale(1);
+      filter: brightness(100%);
+    }
+  }
+  
+  .retro-boot-in {
+    animation: retroBootIn 1.2s ease-out forwards;
+  }
+  
+  @keyframes spinVinyl {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spin {
+    animation: spinVinyl 1s linear forwards;
+  }
+  
+  .spin-infinite {
+    animation: spinVinyl 2s linear infinite;
+  }
+  
+  
+  .fade-out {
+    animation: fadeOut 0.8s ease-in-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  

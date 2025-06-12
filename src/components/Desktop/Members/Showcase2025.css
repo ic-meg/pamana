@@ -1,0 +1,126 @@
+/* Showcase2025.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    font-family: monospace;
+  }
+  
+  .header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .content-wrapper {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 25%;
+    background-color: white;
+    padding: 1.5rem;
+    border-right: 1px solid #d1d5db;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .nav a,
+  .nav-members {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .main {
+    width: 75%;
+    padding: 2rem;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-text {
+    font-size: 0.875rem;
+    max-width: 36rem;
+  }
+  
+  .highlighted-member {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    margin-top: 2rem;
+  }
+  
+  .highlighted-img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+  }
+  
+  .member-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .member-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #d1d5db;
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .member-img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+  }
+  
+  .member-name {
+    font-weight: bold;
+    font-size: 0.875rem;
+  }
+  
+  .member-role,
+  .member-email {
+    font-size: 0.75rem;
+  }
+  .line{
+    border: 1px solid black;
+    font-style: bold;
+  }
+  .footer {
+    background-color: #d1d5db;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    margin-top: 2rem;
+  }
+  .member-1{
+    display: flex;
+
+  }
+  .member-2{
+    display: flex;
+    
+  }

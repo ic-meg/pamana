@@ -1,0 +1,18 @@
+
+main {
+  min-height: 90vh;
+}
+
+a, button, .cursor-pointer {
+  cursor: url('assets/cursors/default_link.cur'), pointer;
+}
+
+
+html, body, #root {
+  height: 100%;
+  /* overflow: hidden; */
+}
+.sidebar-layout-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
