@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 
 import MonitorFrame from '../../components/MonitorFrame';
-import desktopBg from '../../assets/images/retroDesktopWallpaper.jpg';
+import desktopBg from '../../assets/images/noli.png';
 import portraitBg from '../../assets/images/retroDesktopWallpaper-portrait.jpg';
 
 import Taskbar from './taskbar';
@@ -185,6 +185,7 @@ const Desktop = () => {
           src={isMobile ? portraitBg : desktopBg}
           alt="Desktop Background"
           className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ opacity: 0.70 }} 
         />
 
 

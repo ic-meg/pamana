@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import monitorLandscape from '../assets/images/apple.png';
 import monitorPortrait from '../assets/images/portrait-apple.png';
-import beatGif from '../assets/images/beat.gif';
+import beatGif from '../assets/images/beat2.gif';
 
 const MonitorFrame = ({ children }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

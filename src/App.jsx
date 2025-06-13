@@ -10,6 +10,7 @@ import Start from './pages/startup';
 import Play from './pages/play';
 import Shutdown from './components/shutdown';
 import Desktop from './components/Desktop/desktop';
+import BrushReveal from './pages/play'; 
 
 import { AudioProvider } from './contexts/AudioContext'; //handles bg music
 
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Start />} />      {/* startup screen (auto-type text) */}
           <Route path="/play" element={<Play />} />         {/* vinyl animation before desktop */}
+          <Route path="/brush" element={<BrushReveal />} /> {/* new brushing interaction page */}
           <Route path="/desktop" element={<Desktop />} />   {/* windows 95-inspired UI */}
           <Route path="/shutdown" element={<Shutdown />}/>  {/* shutdown animation */}
         </Routes>
