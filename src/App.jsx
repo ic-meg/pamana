@@ -29,8 +29,8 @@ function App() {
           <Route exact path="/" element={<Start />} />      {/* startup screen (auto-type text) */}
           <Route path="/play" element={<Play />} />         
           <Route path="/brush" element={<BrushReveal />} /> 
-          {/* <Route path="/desktop" element={<Desktop />} />   */}
-          {/* <Route path="/shutdown" element={<Shutdown />}/>   */}
+          <Route path="/desktop" element={<Desktop />} />  
+          <Route path="/shutdown" element={<Shutdown />}/>  
 
         </Routes>
       </div>
