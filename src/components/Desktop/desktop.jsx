@@ -1,81 +1,84 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react"
 
-import MonitorFrame from "../../components/MonitorFrame";
-import desktopBg from "../../assets/images/noli.png";
-import portraitBg from "../../assets/images/noli-portrait.png";
+import MonitorFrame from "../../components/MonitorFrame"
+import desktopBg from "../../assets/images/noli.png"
+import portraitBg from "../../assets/images/noli-portrait.png"
 
-import Taskbar from "./taskbar";
-import DesktopIcon from "./DesktopIcon";
-import WindowApp from "./WindowApp";
+import Taskbar from "./taskbar"
+import DesktopIcon from "./DesktopIcon"
+import WindowApp from "./WindowApp"
 
-import typeWriter from "../../assets/icons/typewriter.svg";
-import directory from "../../assets/icons/rizal.png";
-import quill from "../../assets/icons/quill-pen.svg";
+import typeWriter from "../../assets/icons/typewriter.svg"
+import directory from "../../assets/icons/rizal.png"
+import quill from "../../assets/icons/quill-pen.svg"
 
-import ScriptWindow from "./ScriptWindow";
-import WelcomePopup from "./WelcomePopUp";
+import ScriptWindow from "./ScriptWindow"
+import WelcomePopup from "./WelcomePopUp"
 
-import Giuliani from "./Members/Gil";
-import Meg from "./Members/Meg";
-import Ley from "./Members/Ley";
-import Pam from "./Members/Pam";
-import Kate from "./Members/Kate";
+import Giuliani from "./Members/Gil"
+import Meg from "./Members/Meg"
+import Ley from "./Members/Ley"
+import Pam from "./Members/Pam"
+import Kate from "./Members/Kate"
 
-import { AudioContext } from "../../contexts/AudioContext";
-import desktopMusic from "../../assets/sounds/bgmusic.MP3";
+import Timeline from "./Members/Timeline"
+import { Icons } from "../../assets"
 
-import clickSound from "../../assets/sounds/mouse-click.mp3";
-import keySingle from "../../assets/sounds/key-single.MP3";
-import keyLoop from "../../assets/sounds/key-loop.MP3";
+import { AudioContext } from "../../contexts/AudioContext"
+import desktopMusic from "../../assets/sounds/bgmusic.MP3"
+
+import clickSound from "../../assets/sounds/mouse-click.mp3"
+import keySingle from "../../assets/sounds/key-single.MP3"
+import keyLoop from "../../assets/sounds/key-loop.MP3"
 
 const Desktop = () => {
-  const audioRef = useRef(null);
+  const audioRef = useRef(null)
 
   useEffect(() => {
-    let lastKeyTime = 0;
-    let loopAudio = null;
+    let lastKeyTime = 0
+    let loopAudio = null
 
     /*Typing effect*/
     const handleKeyDown = () => {
-      const now = Date.now();
-      const timeSinceLastPress = now - lastKeyTime;
-      lastKeyTime = now;
+      const now = Date.now()
+      const timeSinceLastPress = now - lastKeyTime
+      lastKeyTime = now
 
       if (timeSinceLastPress < 150) {
         if (!loopAudio || loopAudio.ended || loopAudio.paused) {
-          loopAudio = new Audio(keyLoop);
-          loopAudio.volume = 0.5;
-          loopAudio.play().catch(() => {});
+          loopAudio = new Audio(keyLoop)
+          loopAudio.volume = 0.5
+          loopAudio.play().catch(() => {})
         }
       } else {
-        const singleAudio = new Audio(keySingle);
-        singleAudio.volume = 0.4;
-        singleAudio.play().catch(() => {});
+        const singleAudio = new Audio(keySingle)
+        singleAudio.volume = 0.4
+        singleAudio.play().catch(() => {})
       }
-    };
+    }
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown)
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown)
       if (loopAudio) {
-        loopAudio.pause();
-        loopAudio = null;
+        loopAudio.pause()
+        loopAudio = null
       }
-    };
-  }, []);
+    }
+  }, [])
 
   /*Clicking effect*/
   useEffect(() => {
     const handleClick = () => {
       if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(() => {});
+        audioRef.current.currentTime = 0
+        audioRef.current.play().catch(() => {})
       }
-    };
+    }
 
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
-  }, []);
+    window.addEventListener("click", handleClick)
+    return () => window.removeEventListener("click", handleClick)
+  }, [])
 
   //List of the app
   const [apps, setApps] = useState([
@@ -127,50 +130,58 @@ const Desktop = () => {
       isMinimized: false,
       component: <Kate />,
     },
-  ]);
+    {
+      id: "timeline",
+      title: "Timeline",
+      icon: Icons.oldclock,
+      isOpen: false,
+      isMinimized: false,
+      component: <Timeline />,
+    },
+  ])
 
   const { playTrack, toggleMute, isMuted, currentTrack } =
-    useContext(AudioContext);
+    useContext(AudioContext)
 
   useEffect(() => {
     if (currentTrack !== desktopMusic) {
       playTrack(desktopMusic, {
         volume: 0.3,
         loop: true,
-      });
+      })
     }
-  }, [playTrack, currentTrack]);
+  }, [playTrack, currentTrack])
 
   const handleAppClick = (id) => {
     setApps((prev) =>
       prev.map((app) =>
         app.id === id ? { ...app, isOpen: true, isMinimized: false } : app
       )
-    );
-  };
+    )
+  }
 
   const handleMinimize = (id) => {
     setApps((prev) =>
       prev.map((app) => (app.id === id ? { ...app, isMinimized: true } : app))
-    );
-  };
+    )
+  }
 
   const handleClose = (id) => {
     setApps((prev) =>
       prev.map((app) =>
         app.id === id ? { ...app, isOpen: false, isMinimized: false } : app
       )
-    );
-  };
+    )
+  }
 
   /* Mobile Detection */
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
   return (
     <MonitorFrame>
       <audio ref={audioRef} src={clickSound} preload="auto" />
@@ -206,8 +217,8 @@ const Desktop = () => {
           <div onClick={() => handleAppClick("murillo")}>
             <DesktopIcon icon={quill} label="Legacy" />
           </div>
-          <div onClick={() => handleAppClick("serrano")}>
-            <DesktopIcon icon={quill} label="Timeline" />
+          <div onClick={() => handleAppClick("timeline")}>
+            <DesktopIcon icon={Icons.oldclock} label="Timeline" />
           </div>
         </div>
 
@@ -241,7 +252,7 @@ const Desktop = () => {
         />
       </div>
     </MonitorFrame>
-  );
-};
+  )
+}
 
-export default Desktop;
+export default Desktop
