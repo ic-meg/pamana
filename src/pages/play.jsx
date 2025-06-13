@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useContext, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AudioContext } from '../contexts/AudioContext';
+// import { AudioContext } from '../contexts/AudioContext';
 import bgBrush from '../assets/images/bgBrush.jpg';
 import brushImg from '../assets/images/brush.png';
 
@@ -9,7 +9,7 @@ import brushImg from '../assets/images/brush.png';
 
 const BrushReveal = () => {
   const navigate = useNavigate();
-  const { playTrack } = useContext(AudioContext);
+  // const { playTrack } = useContext(AudioContext);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -149,7 +149,7 @@ const BrushReveal = () => {
             position: "absolute",
             bottom: "5%",
             left: "50%",
-            transform: "translateX(-50%)",
+
             transition: "all 0.3s ease-in-out",
             textShadow: hover
               ? "0 0 6px rgba(0, 0, 0, 0.5), 0 0 2px rgba(255, 255, 255, 0.7)"
