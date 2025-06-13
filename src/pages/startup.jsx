@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './startup.css';
 import typingSound from '../assets/sounds/dial-up.mp3'; 
-import windowsStartupSound from '../assets/sounds/windows-startup.mp3';
+// import windowsStartupSound from '../assets/sounds/windows-startup.mp3';
 
 const Startup = () => {
   const navigate = useNavigate();
@@ -55,8 +55,8 @@ const Startup = () => {
 
   useEffect(() => {
     if (isDone) {
-      const startupSound = new Audio(windowsStartupSound);
-      startupSound.volume = 0.5;
+      // const startupSound = new Audio(windowsStartupSound);
+      // startupSound.volume = 0.5;
   
       const timeout = setTimeout(() => {
         setShouldFadeOut(true);
@@ -65,10 +65,10 @@ const Startup = () => {
           audioRef.current.pause();
         }
 
-        startupSound.play().catch(e => {
-          console.log("Windows startup sound failed:", e);
-          navigate('/play'); 
-        });
+        // startupSound.play().catch(e => {
+        //   console.log("Windows startup sound failed:", e);
+        //   navigate('/play'); 
+        // });
   
         navigate('/play');
        
@@ -98,7 +98,7 @@ const Startup = () => {
     if (charIndex < messages[currentLine].length) {
       const timeout = setTimeout(() => {
         setCharIndex(prev => prev + 1);
-      }, 30); //slow the typing down
+      }, 25); //slow the typing down
       return () => clearTimeout(timeout);
     } else {
       setDisplayedLines(prev => [...prev, messages[currentLine]]);
