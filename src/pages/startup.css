@@ -1,74 +1,72 @@
-
-
 .startup-screen {
-    background-color: black;
-    color: white;
-    font-family: 'Courier New Custom', monospace;
-    font-size: 16px;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    box-sizing: border-box;
+  background-image: url("../assets/images/Start.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 100vh; 
+  width: 100vw; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  padding: 20px;
+  color: black;
+}
+
+.startup-content {
+  text-align: left;
+  white-space: pre-wrap;
+  flex: 1;
+  line-height: 1.2;
+  font-size: 1.25rem;
+}
+
+.indented {
+  margin-left: 20px;
+}
+
+.startup-footer {
+  text-align: left;
+  margin-top: auto;
+  padding-top: 20px;
+    font-size: 1.25rem;
+}
+
+.progress-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
-  
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+}
+@media (max-width: 640px) {
   .startup-content {
-    text-align: left;
-    white-space: pre-wrap;
-    flex: 1;
-    line-height: 1.2; 
+    padding: 12px;
+    font-size: 0.85rem;
   }
 
-  
-  
-  .indented {
-    margin-left: 20px; 
-  }
-  
   .startup-footer {
-    text-align: left;
-    margin-top: auto;
-    padding-top: 20px;
+    font-size: 0.75rem;
   }
 
-  .progress-message {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  .indented {
+    padding-left: 12px;
   }
-  
-
-  .fade-out {
-    animation: fadeOut 1s ease-in-out forwards;
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-  
-
-  .cursor {
-    display: inline-block;
-    width: 10px;
-  }
-  @media (max-width: 640px) {
-    .startup-content {
-      padding: 12px;
-      font-size: 0.85rem;
-    }
-  
-    .startup-footer {
-      font-size: 0.75rem;
-    }
-  
-    .indented {
-      padding-left: 12px;
-    }
-  }
+}

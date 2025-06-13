@@ -4,6 +4,9 @@ import { AudioContext } from '../contexts/AudioContext';
 import bgBrush from '../assets/images/bgBrush.jpg';
 import brushImg from '../assets/images/brush.png';
 
+
+
+
 const BrushReveal = () => {
   const navigate = useNavigate();
   const { playTrack } = useContext(AudioContext);
@@ -12,7 +15,8 @@ const BrushReveal = () => {
 
   // Fade state
   const [fade, setFade] = useState(false);
-
+  const [hover, setHover] = useState(false);
+  
   // Fade in on mount
   useEffect(() => {
     setFade(true);
@@ -76,16 +80,16 @@ const BrushReveal = () => {
       style={{
         fontFamily: "'Kolker Brush', cursive",
         background: `url(${bgBrush}) no-repeat fixed`,
-        backgroundPosition: 'center 1px',
-        backgroundSize: 'cover',
+        backgroundPosition: "center 1px",
+        backgroundSize: "cover",
         opacity: fade ? 1 : 0,
-        transition: 'opacity 0.7s ease',
+        transition: "opacity 0.7s ease",
       }}
     >
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
-        style={{ touchAction: 'none', zIndex: 2 }}
+        style={{ touchAction: "none", zIndex: 2 }}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
       />
@@ -93,32 +97,35 @@ const BrushReveal = () => {
       {/* Overlay Content */}
       <div
         className="absolute inset-0 flex flex-col items-center justify-center"
-        style={{ zIndex: 3, pointerEvents: 'none' }}
+        style={{ zIndex: 3, pointerEvents: "none" }}
       >
-        <div style={{ position: 'relative', display: 'inline-block' }}>
+        <div style={{ position: "relative", display: "inline-block" }}>
           <h1
             style={{
               fontFamily: "'Kolker Brush', cursive",
-              fontSize: 300,
-              color: '#000',
-              textShadow: '2px 2px 8px #fff, 0 0 2px #5B3200',
-              marginBottom: 100,
+              fontSize: "clamp(100px, 20vw, 300px)", // para responsive yung font
+              color: "#000",
+              textShadow: "2px 2px 8px #fff, 0 0 2px #5B3200",
+              marginBottom: "clamp(20px, 8vh, 100px)",
               lineHeight: 1,
+              textAlign: "center",
             }}
           >
             Pamana
           </h1>
+
           <span
             style={{
-              position: 'absolute',
-              right: 40,
-              bottom: 130,
+              position: "absolute",
+              right: "clamp(10px, 5vw, 40px)",
+              bottom: window.innerWidth < 768 ? "8vh" : "10vh",
               fontFamily: "'Great Vibes', cursive",
-              fontSize: 30,
-              color: 'black',
-              textShadow: `-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff`,
-              fontStyle: 'italic',
-              pointerEvents: 'none',
+              fontSize: "clamp(14px, 4vw, 30px)",
+              color: "black",
+              textShadow:
+                "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff",
+              fontStyle: "italic",
+              pointerEvents: "none",
             }}
           >
             Jose Rizal
@@ -126,22 +133,30 @@ const BrushReveal = () => {
         </div>
         <button
           onClick={handleHistoryClick}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
           style={{
             fontFamily: "'Estonia', cursive",
-            fontSize: 35,
-            background: 'rgba(255,255,255,0.7)',
-            color: 'black',
-            textShadow: `-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff`,
-            border: 'none',
+            fontSize: "clamp(18px, 2.5vw, 35px)",
+            background: "transparent",
+            color: "black",
+            border: "none",
             borderRadius: 12,
-            padding: '16px 40px',
-            cursor: 'pointer',
-            pointerEvents: 'auto',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-            position: 'absolute',
-            bottom: '5%',
-            left: '50%',
-            transform: 'translateX(-50%)',
+            padding: "12px 30px",
+            cursor: "pointer",
+            pointerEvents: "auto",
+            boxShadow: "none",
+            position: "absolute",
+            bottom: "5%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            transition: "all 0.3s ease-in-out",
+            textShadow: hover
+              ? "0 0 6px rgba(0, 0, 0, 0.5), 0 0 2px rgba(255, 255, 255, 0.7)"
+              : "1px 1px 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(0, 0, 0, 0.9)",
+            transform: hover
+              ? "translateX(-50%) scale(1.05)"
+              : "translateX(-50%)",
           }}
         >
           Step into History

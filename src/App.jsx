@@ -27,10 +27,11 @@ function App() {
       <div className="grainy-overlay">
         <Routes>
           <Route exact path="/" element={<Start />} />      {/* startup screen (auto-type text) */}
-          <Route path="/play" element={<Play />} />         {/* vinyl animation before desktop */}
-          <Route path="/brush" element={<BrushReveal />} /> {/* new brushing interaction page */}
-          <Route path="/desktop" element={<Desktop />} />   {/* windows 95-inspired UI */}
-          <Route path="/shutdown" element={<Shutdown />}/>  {/* shutdown animation */}
+          <Route path="/play" element={<Play />} />         
+          <Route path="/brush" element={<BrushReveal />} /> 
+          {/* <Route path="/desktop" element={<Desktop />} />   */}
+          {/* <Route path="/shutdown" element={<Shutdown />}/>   */}
+
         </Routes>
       </div>
     </AudioProvider>
