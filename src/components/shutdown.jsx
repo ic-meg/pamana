@@ -65,40 +65,48 @@ const Shutdown = () => {
   const currentText = messages[currentLine]?.substring(0, charIndex) || "";
 
   return (
-    <div className={`startup-screen ${shouldFadeOut ? 'fade-out' : ''}`}> 
-      <div className="startup-content text-white">
-        <p><strong>The&lt;Script&gt;.</strong>   Shut down Initiated: 03/24/2025</p>
-        <p><strong>The&lt;Script&gt; Inc.</strong>   TSBIOS © 2000 The Script Inc.,</p>
+    <div className={`startup-screen ${shouldFadeOut ? "fade-out" : ""}`}>
+      <div className="startup-content text-black">
+        <p>
+          <strong>Pamana.</strong> Shut down Initiated: 03/24/2025
+        </p>
+        <p>
+          <strong>Pamana Inc.</strong> TSBIOS © 2000 Pamana Inc.,
+        </p>
         <br />
-        <p>SIBIOS S13 2000–2025 Special Edition</p>
+        <p>RZBIOS v1.861–1896 National Hero Edition</p>
         <br />
-        <p>Script Interactive Bootloader (SIB) vX 3.7</p>
+        <p>Rizal Interactive Bootloader (RIB)\X v2.6</p>
         <p>Releasing Resources...</p>
         <br />
 
         {displayedLines.map((line, i) => (
-          <p key={i} className="indented">{line}</p>
+          <p key={i} className="indented">
+            {line}
+          </p>
         ))}
 
         {!isDone && (
           <p className="indented">
             {currentText}
-            <span className="cursor">{blinker ? '_' : ' '}</span>
+            <span className="cursor">{blinker ? "_" : " "}</span>
           </p>
         )}
 
         {isDone && (
           <>
-            <br /><br />
-            <p><span className="cursor">{blinker ? '_' : ' '}</span></p>
+            <br />
+            <br />
+            <p>
+              <span className="cursor">{blinker ? "_" : " "}</span>
+            </p>
             <p>Goodbye.</p>
-    
           </>
         )}
       </div>
 
       <footer className="startup-footer">
-        <p>Tip: Every great ending is just a reboot away.</p>
+        <p>Tip: History pauses, only to resume stronger.</p>
       </footer>
     </div>
   );

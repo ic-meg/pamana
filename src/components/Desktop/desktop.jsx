@@ -192,22 +192,22 @@ const Desktop = () => {
         "
         >
           <div onClick={() => handleAppClick("script")}>
-            <DesktopIcon icon={typeWriter} label="The <Script>" />
+            <DesktopIcon icon={typeWriter} label="Homepage" />
           </div>
           <div onClick={() => handleAppClick("calais")}>
-            <DesktopIcon icon={directory} label="Calais" />
+            <DesktopIcon icon={directory} label="Biography" />
           </div>
           <div onClick={() => handleAppClick("fabian")}>
-            <DesktopIcon icon={quill} label="Fabian" />
+            <DesktopIcon icon={quill} label="Literary Works" />
           </div>
           <div onClick={() => handleAppClick("galo")}>
-            <DesktopIcon icon={quill} label="Galo" />
+            <DesktopIcon icon={quill} label="Political Thought" />
           </div>
           <div onClick={() => handleAppClick("murillo")}>
-            <DesktopIcon icon={quill} label="Murillo" />
+            <DesktopIcon icon={quill} label="Legacy" />
           </div>
           <div onClick={() => handleAppClick("serrano")}>
-            <DesktopIcon icon={quill} label="Serrano" />
+            <DesktopIcon icon={quill} label="Timeline" />
           </div>
         </div>
 
