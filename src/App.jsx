@@ -6,7 +6,6 @@ import './tailwind.css';
 import './scrollbar.css';
 import '../src/components/Desktop/desktop.css';
 
-import Start from './pages/startup';
 import Play from './pages/play';
 import Shutdown from './components/shutdown';
 import Desktop from './components/Desktop/desktop';
@@ -26,8 +25,7 @@ function App() {
     <AudioProvider> 
       <div className="grainy-overlay">
         <Routes>
-          <Route exact path="/" element={<Start />} />      {/* startup screen (auto-type text) */}
-          <Route path="/play" element={<Play />} />         
+          <Route path="/" element={<Play />} />         
           <Route path="/brush" element={<BrushReveal />} /> 
           <Route path="/desktop" element={<Desktop />} />  
           <Route path="/shutdown" element={<Shutdown />}/>  
