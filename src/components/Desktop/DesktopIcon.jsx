@@ -2,7 +2,7 @@
 
 const DesktopIcon = ({ icon, label }) => {
   return (
-    <div className="flex flex-col items-center w-[60px] sm:w-[80px] cursor-pointer select-none text-black hover:brightness-125 px-1 py-2">
+    <div className="flex flex-col items-center w-[60px] sm:w-[80px] cursor-pointer select-none text-black hover:brightness-125 px-1 py-2 ">
       <img
         src={icon}
         alt={label}
