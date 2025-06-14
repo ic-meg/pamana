@@ -137,7 +137,7 @@ const BrushReveal = () => {
           onMouseLeave={() => setHover(false)}
           style={{
             fontFamily: "'Estonia', cursive",
-            fontSize: "clamp(18px, 2.5vw, 35px)",
+            fontSize: "clamp(18px, 2.5vw, 45px)",
             background: "transparent",
             color: "black",
             border: "none",

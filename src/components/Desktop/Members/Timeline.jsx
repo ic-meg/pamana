@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react";
 import { Images, RizalTimelineImg } from "../../../assets"
 
 export default function Timeline() {
@@ -143,25 +143,29 @@ export default function Timeline() {
   const centerX = 300
   const centerY = 300
 
-  const rotateToIndex = (index) => {
-    const anglePerItem = 360 / rizalTimeline.length
-    const newRotation = -index * anglePerItem
+  const rotateToIndex = useCallback(
+    (index) => {
+      const anglePerItem = 360 / rizalTimeline.length;
+      const newRotation = -index * anglePerItem;
 
-    setActiveIndex(index)
+      setActiveIndex(index);
 
-    // Don't rotate the whole clock, just move the hand if zoomed
-    if (isZoomed) {
-      setRotation(0)
-      setHandRotation(index * anglePerItem) // point hand to clicked index
-    } else {
-      setRotation(newRotation)
-    }
-  }
+      if (isZoomed) {
+        setRotation(0);
+        setHandRotation(index * anglePerItem);
+      } else {
+        setRotation(newRotation);
+      }
+    },
+    [isZoomed, rizalTimeline.length]
+  );
+
 
   useEffect(() => {
     setHandRotation(0)
     rotateToIndex(activeIndex)
-  }, [isZoomed])
+  }, [isZoomed, activeIndex, rotateToIndex])
+
 
   return (
     <div className="relative w-full h-full overflow-hidden">
@@ -235,12 +239,12 @@ export default function Timeline() {
               const y = centerY + radius * Math.sin(angle) - 10
 
               return (
-                <a
+                <button
                   key={index}
                   title={timeline.event}
                   onClick={(e) => {
-                    e.stopPropagation()
-                    rotateToIndex(index)
+                    e.stopPropagation();
+                    rotateToIndex(index);
                   }}
                   className={`absolute text-xs font-medium cursor-pointer hover:underline text-center w-[80px] text-3xl ${
                     index === activeIndex ? "text-black-600" : "text-white"
@@ -251,11 +255,13 @@ export default function Timeline() {
                     transform: `rotate(${-rotation}deg)`,
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
                     fontWeight: "bolder",
+                    background: "none",
+                    border: "none",
                   }}
                 >
                   {timeline.date}
-                </a>
-              )
+                </button>
+              );
             })}
           </div>
 
