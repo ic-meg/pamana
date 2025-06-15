@@ -6,7 +6,7 @@ const DesktopIcon = ({ icon, label }) => {
       <img
         src={icon}
         alt={label}
-        className="w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] mb-1"
+        className="w-[50px] h-[50px] sm:w-[45px] sm:h-[45px] mb-1"
       />
       <span
         className="text-center text-[10px] sm:text-[12px] font-['Courier_New',_monospace] leading-tight text-white"
