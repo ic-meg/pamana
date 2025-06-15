@@ -210,12 +210,14 @@ export default function Timeline() {
             }}
           />
         </div>
+
         {isZoomed && (
           <div
             className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity duration-500 mt-[37px]"
             onClick={() => setIsZoomed((prev) => !prev)}
           />
         )}
+
         <div
           className={`absolute transition-all duration-500 ease-in-out cursor-pointer ${
             isZoomed
