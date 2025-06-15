@@ -7,7 +7,6 @@ import './scrollbar.css';
 import '../src/components/Desktop/desktop.css';
 
 import Play from './pages/play';
-import Shutdown from './components/shutdown';
 import Desktop from './components/Desktop/desktop';
 import BrushReveal from './pages/play'; 
 
@@ -28,8 +27,6 @@ function App() {
           <Route path="/" element={<Play />} />         
           <Route path="/brush" element={<BrushReveal />} /> 
           <Route path="/desktop" element={<Desktop />} />  
-          <Route path="/shutdown" element={<Shutdown />}/>  
-
         </Routes>
       </div>
     </AudioProvider>
