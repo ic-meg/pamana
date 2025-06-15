@@ -9,7 +9,7 @@ const DesktopIcon = ({ icon, label }) => {
         className="w-[50px] h-[50px] sm:w-[45px] sm:h-[45px] mb-1"
       />
       <span
-        className="text-center text-[10px] sm:text-[12px] font-['Courier_New',_monospace] leading-tight text-white"
+        className="text-center text-[10px] sm:text-[12px] font-prime leading-tight text-white"
       >
         {label}
       </span>

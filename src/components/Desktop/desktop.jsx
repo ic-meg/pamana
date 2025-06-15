@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 import MonitorFrame from "../../components/MonitorFrame";
 import desktopBg from "../../assets/images/noli.png";
+import shadow from "../../assets/images/shadow.png";
+
 import portraitBg from "../../assets/images/noli-portrait.png";
 
 import Taskbar from "./taskbar";
@@ -227,11 +229,18 @@ const Desktop = () => {
           style={{ opacity: 0.7 }}
         />
 
+        {/* Shadow overlay on top of Noli */}
+        <img
+          src={shadow}
+          alt="Overlay Shadow"
+          className="absolute inset-0 w-full h-full object-cover z-[1] pointer-events-none"
+        />
+
         {/* Desktop Icons */}
         <div
           className="
           absolute z-10
-          grid grid-rows-6 grid-flow-col gap-x-6 gap-y-2 p-4
+          grid grid-rows-6 grid-flow-col gap-x-0 gap-y-0 p-4
           top-2 left-2
         "
         >
@@ -262,7 +271,7 @@ const Desktop = () => {
           <div onClick={() => handleAppClick("illustration")}>
             <DesktopIcon
               icon={Icons.illustration}
-              label="Illustration and Photos"
+              label="Photos"
             />
           </div>
           <div onClick={() => handleAppClick("opinions")}>

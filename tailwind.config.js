@@ -4,10 +4,12 @@ export const content = [
 export const theme = {
   extend: {
     fontFamily: {
-      vt323: ['VT323 Custom', 'monospace'],
-      courier: ['Courier New Custom', 'monospace'],
-    }
-  }
+      vt323: ["VT323 Custom", "monospace"],
+      courier: ["Courier New Custom", "monospace"],
+      coustard: ["Coustard", "monospace"],
+      prime: ["Prime", "monospace"]
+    },
+  },
 };
 
 export const plugins = [

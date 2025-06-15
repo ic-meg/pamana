@@ -4,7 +4,7 @@ import feather from "../../assets/icons/feather.png";
 
 const Feather = ({ children }) => {
   return (
-    <div className="relative w-full h-full text-[#543312] bg-[#fdf9f2] font-serif px-6 py-8 overflow-hidden">
+    <div className="relative w-full h-full text-[#543312]  font-serif px-6 py-8 overflow-hidden">
       {/* Background Frame */}
       <img
         src={frame}
