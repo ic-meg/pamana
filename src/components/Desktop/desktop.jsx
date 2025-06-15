@@ -11,11 +11,16 @@ import WindowApp from "./WindowApp";
 import ScriptWindow from "./ScriptWindow";
 import WelcomePopup from "./WelcomePopUp";
 
-// import Giuliani from "./Members/Gil";
-// import Meg from "./Members/Meg";
-// import Ley from "./Members/Ley";
-// import Pam from "./Members/Pam";
-// import Kate from "./Members/Kate";
+// Rizal Sections
+import Intro from "../Desktop/Members/Intro";
+import Biography from "../Desktop/Members/Bio";
+import Literary from "../Desktop/Members/Literary";
+import Legacy from "../Desktop/Members/Legacy";
+import Quotes from "../Desktop/Members/Quotes";
+import Illustration from "./Members/Illustration";
+import Opinions from "../Desktop/Members/Opinions";
+import References from "../Desktop/Members/References";
+import Politics from "../Desktop/Members/politics"
 
 import Timeline from "./Members/Timeline";
 import { Icons } from "../../assets";
@@ -92,7 +97,7 @@ const Desktop = () => {
       icon: Icons.Intro,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Intro />,
     },
     {
       id: "bio",
@@ -100,7 +105,7 @@ const Desktop = () => {
       icon: Icons.bio,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Biography />,
     },
     {
       id: "literary",
@@ -108,7 +113,7 @@ const Desktop = () => {
       icon: Icons.literary,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Literary />,
     },
     {
       id: "legacy",
@@ -116,7 +121,7 @@ const Desktop = () => {
       icon: Icons.legacy,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Legacy />,
     },
     {
       id: "timeline",
@@ -132,7 +137,7 @@ const Desktop = () => {
       icon: Icons.political,
       isOpen: false,
       isMinimized: false,
-      component: <Timeline />,
+      component: <Politics />,
     },
     {
       id: "quotes",
@@ -140,7 +145,7 @@ const Desktop = () => {
       icon: Icons.quotes,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Quotes />,
     },
     {
       id: "illustration",
@@ -148,7 +153,7 @@ const Desktop = () => {
       icon: Icons.illustration,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Illustration />,
     },
     {
       id: "opinions",
@@ -156,7 +161,7 @@ const Desktop = () => {
       icon: Icons.opinion,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <Opinions />,
     },
     {
       id: "references",
@@ -164,7 +169,7 @@ const Desktop = () => {
       icon: Icons.references,
       isOpen: false,
       isMinimized: false,
-      component: <ScriptWindow />,
+      component: <References />,
     },
   ]);
 
@@ -230,8 +235,8 @@ const Desktop = () => {
           top-2 left-2
         "
         >
-          <div onClick={() => handleAppClick("home")}>
-            <DesktopIcon icon={Icons.Home} label="Homepage" />
+          <div onClick={() => handleAppClick("pamana")}>
+            <DesktopIcon icon={Icons.Home} label="Pamana" />
           </div>
           <div onClick={() => handleAppClick("intro")}>
             <DesktopIcon icon={Icons.Intro} label="Introduction" />
@@ -275,7 +280,7 @@ const Desktop = () => {
             !app.isMinimized && (
               <WindowApp
                 key={app.id}
-                title="The&lt;Script&gt; - Showcase 2025"
+                title="Jose Rizal's Pamana"
                 icon={app.icon}
                 onClose={() => handleClose(app.id)}
                 onMinimize={() => handleMinimize(app.id)}

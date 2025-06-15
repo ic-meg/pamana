@@ -50,6 +50,8 @@ const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
           </div>
         </div>
         <div className="w-full h-[2px] bg-[#543312]" />
+
+        
         {/* Content */}
         <div className="flex-1 overflow-y-auto w-full p-0 md:pt-0 text-sm text-black">
           {children}

@@ -180,11 +180,11 @@ const Taskbar = ({ openApps = [], onClickApp, toggleMute, isMuted, isMobile }) =
 
                 shutdownAudio.play().then(() => {
                   
-                    navigate('/shutdown');
+                    navigate('/');
                   
                 }).catch(e => {
                   console.log("Shutdown sound error:", e);
-                  navigate('/shutdown');
+                  navigate('/');
                 });
               }}
               className="border-t border-gray-400 pt-2 flex items-center gap-2 cursor-pointer"

@@ -1,94 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Home from "./home";
 
-import SidebarLayout from './SidebarLayout';
+// Rizal Sections
+import Intro from "../Desktop/Members/Intro";
+import Biography from "../Desktop/Members/Bio";
+import Literary from "../Desktop/Members/Literary";
+import Legacy from "../Desktop/Members/Legacy";
+import Timeline from "../Desktop/Members/Timeline";
+import Quotes from "../Desktop/Members/Quotes";
+import Illustration from "./Members/Illustration";
+import Opinions from "../Desktop/Members/Opinions";
+import References from "../Desktop/Members/References";
+import Politics from "../Desktop/Members/politics";
 
-import About from './About/About';
-
-import { Projects, Software, Arduino, UI, Game } from './Projects';
-import { Members, Gil, Meg, Ley, Pam, Kate } from './Members';
-
-import Contact from './Contact/Contact';
-import Home from './home';
-
-//Tracks which is the active tab and returns it, control the sidebar expanded 
 const ScriptWindow = () => {
-  const [activeTab, setActiveTab] = useState('home');
-  const [sidebarState, setSidebarState] = useState({
-    expandProjects: false,
-    expandMembers: false
-  });
-
+  const [activeTab, setActiveTab] = useState("home");
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'about':
-        return <About />;
-  
-      case 'projects':
-        return <Projects activeTab={activeTab} setActiveTab={setActiveTab} />;
-  
-      case 'software':
-        return <Software />;
-      
-      case 'ui':
-        return <UI />
-  
-      case 'game':
-        return <Game />
-        
-      case 'arduino':
-        return <Arduino />;
-  
-      case 'members':
-        return <Members activeTab={activeTab} setActiveTab={setActiveTab} />;
-  
-      case 'giuliani':
-        return <Gil />;
-  
-      case 'meg':
-        return <Meg />;
-  
-      case 'shanley':
-        return <Ley />;
-  
-      case 'pamela':
-        return <Pam />;
-  
-      case 'kate':
-        return <Kate />;
-  
-      case 'contact':
-        return <Contact />;
-  
+      case "intro":
+        return <Intro />;
+      case "biography":
+        return <Biography />;
+      case "literary":
+        return <Literary />;
+      case "legacy":
+        return <Legacy />;
+      case "timeline":
+        return <Timeline />;
+      case "quotes":
+        return <Quotes />;
+      case "photos":
+        return <Illustration />;
+      case "opinions":
+        return <Opinions />;
+      case "references":
+        return <References />;
+      case "political":
+        return <Politics />;
       default:
         return null;
     }
   };
-  
 
-  return activeTab === 'home' ? (
-    <Home
-      setActiveTab={(tab) => {
-        
-        if (tab === 'projects') {
-          setSidebarState({ expandProjects: true, expandMembers: false });
-        } else if (tab === 'members') {
-          setSidebarState({ expandProjects: false, expandMembers: true });
-        } else {
-          setSidebarState({ expandProjects: false, expandMembers: false });
-        }
-        setActiveTab(tab);
-      }}
-    />
-
+  return activeTab === "home" ? (
+    <Home setActiveTab={setActiveTab} />
   ) : (
-    <SidebarLayout
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      sidebarState={sidebarState}
-    >
-      {renderContent()}
-    </SidebarLayout>
+    <div className="relative w-full h-full">{renderContent()}</div>
   );
 };
 
