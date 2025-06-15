@@ -1,10 +1,11 @@
 import React from 'react';
+import Feather from "../Feather";
 
 const Opinions = () => {
     return (
-        <div>
-            Opinions
-        </div>
+      <Feather>
+        <div>Opinions</div>
+      </Feather>
     );
 };
 
