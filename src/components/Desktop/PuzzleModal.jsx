@@ -11,9 +11,6 @@ import {
 import { CSS } from "@dnd-kit/utilities"
 import Draggable from "react-draggable"
 
-import monitorLandscape from "../../assets/images/apple.png"
-import monitorPortrait from "../../assets/images/portrait-apple.png"
-import beatGif from "../../assets/images/beat2.gif"
 import bgTexture from "../../assets/images/bg.jpg"
 import { Images } from "../../assets"
 
@@ -83,23 +80,6 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-
-  const selectedMonitor = isMobile ? monitorPortrait : monitorLandscape
-  const cutoutStyle = isMobile
-    ? {
-        top: "0.5%",
-        left: "1.5%",
-        width: "99.5%",
-        height: "95.5%",
-        position: "absolute",
-      }
-    : {
-        top: "1.5%",
-        left: "1.25%",
-        width: "97.5%",
-        height: "89%",
-        position: "absolute",
-      }
 
   useEffect(() => {
     const shuffled = shuffleArray(

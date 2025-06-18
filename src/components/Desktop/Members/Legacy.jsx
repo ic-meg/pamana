@@ -1,5 +1,5 @@
-import React from 'react';
-import Feather from "../Feather";
+import React from "react"
+import Feather from "../Feather"
 
 const Legacy = ({ setActiveTab }) => {
   return (
@@ -8,7 +8,7 @@ const Legacy = ({ setActiveTab }) => {
         <h1>Legacy Component</h1>
       </div>
     </Feather>
-  );
-};
+  )
+}
 
-export default Legacy;
+export default Legacy
