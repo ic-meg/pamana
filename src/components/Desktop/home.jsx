@@ -6,7 +6,7 @@ import HomeContent from "../Desktop/Feather";
 
 const Home = ({ setActiveTab }) => {
   return (
-    <HomeContent>
+    <HomeContent isScrollable={false} isHome={true} setActiveTab={setActiveTab}>
       <div className="">
         {/* Rizal */}
         <img
