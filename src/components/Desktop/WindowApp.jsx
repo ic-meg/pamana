@@ -1,12 +1,12 @@
-import React, { useState, useRef } from "react"
-import Draggable from "react-draggable"
-import bgTexture from "../../assets/images/bg.jpg"
+import React, { useState, useRef } from "react";
+import Draggable from "react-draggable";
+import bgTexture from "../../assets/images/bg.jpg";
 
 const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
-  const [isMinimized, setIsMinimized] = useState(false)
-  const nodeRef = useRef(null)
+  const [isMinimized, setIsMinimized] = useState(false);
+  const nodeRef = useRef(null);
 
-  if (isMinimized) return null
+  if (isMinimized) return null;
 
   return (
     <Draggable
@@ -17,7 +17,7 @@ const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
     >
       <div
         ref={nodeRef}
-        className="absolute top-[30px] left-[7vw] w-[90vw] max-w-[980px] h-[80vh] max-h-[600px] border-[3px] border-[#543312] rounded-[20px] m-4 shadow-inner shadow-[4px_4px_0px_rgba(0,0,0,0.4)] bg-[#F0F0F0] z-50 font-coustard flex flex-col overflow-hidden"
+        className="absolute top-[20px] left-[8vw] w-[90vw] max-w-[980px] h-[80vh] max-h-[620px] border-[3px] border-[#543312] rounded-[20px] m-4 shadow-inner shadow-[4px_4px_0px_rgba(0,0,0,0.4)] bg-[#F0F0F0] z-50 font-coustard flex flex-col overflow-hidden"
         style={{
           backgroundImage: `url(${bgTexture})`,
           backgroundSize: "cover",
@@ -35,8 +35,8 @@ const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
             <button
               className="no-drag w-[22px] h-[22px] border-[2.5px] border-[#543312] text-[#543312] font-bold text-[13px] rounded-[4px] hover:bg-[#f5e9d8]"
               onClick={() => {
-                setIsMinimized(false)
-                onMinimize?.()
+                setIsMinimized(false);
+                onMinimize?.();
               }}
             >
               –
@@ -57,7 +57,7 @@ const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
         </div>
       </div>
     </Draggable>
-  )
-}
+  );
+};
 
-export default WindowApp
+export default WindowApp;
