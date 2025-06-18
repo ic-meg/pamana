@@ -4,8 +4,8 @@ import { Icons, Images, RizalLiterature } from "../../../assets"
 
 const Literary = () => {
   return (
-    <Feather>
-      <div className="relative h-[65vh] w-[90%] justify-self-end mr-5 gap-5 flex flex-col overflow-y-scroll">
+    <Feather isScrollable={true}>
+      <div className="relative h-[65vh] w-[90%] justify-self-end mr-5 gap-5 flex flex-col ">
         <h1 className="text-2xl sm:text-2xl font-bold tracking-wider font-coustard align-middle text-center mt-7 m-7">
           Literature
         </h1>
@@ -104,7 +104,7 @@ const Literary = () => {
         </div>
       </div>
     </Feather>
-  )
+  );
 }
 
 export default Literary

@@ -3,7 +3,7 @@ import Feather from "../Feather";
 
 const Opinions = () => {
     return (
-      <Feather>
+      <Feather isScrollable={true}>
         <div>Opinions</div>
       </Feather>
     );

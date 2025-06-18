@@ -3,11 +3,11 @@ import Feather from "../Feather";
 
 const References = () => {
     return (
-        <Feather>
+      <Feather isScrollable={true}>
         <div>
-            <h1>References</h1>
+          <h1>References</h1>
         </div>
-        </Feather>
+      </Feather>
     );
 };
 
