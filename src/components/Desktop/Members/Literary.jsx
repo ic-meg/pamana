@@ -3,10 +3,9 @@ import Feather from "../Feather"
 import { Icons, Images, RizalLiterature } from "../../../assets"
 import PuzzleModal from "../PuzzleModal"
 import "../ScrollAnim.css"
-import ScrollAnim from "../ScrollAnim"
+import useScrollAnim from "../ScrollAnim"
 
 const Literary = ({ setActiveTab }) => {
-  ScrollAnim()
   const [isOpen, setIsOpen] = useState(false)
   const [filter, setFilter] = useState("novel")
   const [inputValue, setInputValue] = useState("")
@@ -133,6 +132,8 @@ const Literary = ({ setActiveTab }) => {
     return doc.body.innerHTML
   }
 
+  useScrollAnim(".scrollAnim", 0.3, activeLiterature)
+
   return (
     <>
       <PuzzleModal
@@ -204,11 +205,11 @@ const Literary = ({ setActiveTab }) => {
               <img
                 src={Icons.inkPen}
                 alt="paper"
-                className=" fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
+                className="scrollAnim fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
                 draggable={false}
               />
-              <div className="scrollAnim fadeInUp w-[75%] mt-28 flex flex-col gap-5">
-                <div className="flex justify-between gap-2">
+              <div className=" w-[75%] mt-28 flex flex-col gap-5">
+                <div className="scrollAnim fadeInUp flex justify-between gap-2">
                   <div className="scrollAnim fadeInUp h-full flex flex-col">
                     <h1
                       className="text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
@@ -238,8 +239,9 @@ const Literary = ({ setActiveTab }) => {
                     draggable={false}
                   />
                 </div>
+
                 <p
-                  className="pl-10 pr-10"
+                  className="scrollAnim fadeInUp pl-10 pr-10"
                   dangerouslySetInnerHTML={{
                     __html: highlightTextSafeHTML(
                       literature[activeLiterature].summary,

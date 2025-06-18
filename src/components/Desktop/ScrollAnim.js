@@ -1,6 +1,10 @@
 import { useEffect } from "react"
 
-export default function ScrollAnim(selector = ".scrollAnim", threshold = 0.3) {
+export default function useScrollAnim(
+  selector = ".scrollAnim",
+  threshold = 0.3,
+  trigger = null
+) {
   useEffect(() => {
     const timeoutMap = new Map()
 
@@ -15,8 +19,8 @@ export default function ScrollAnim(selector = ".scrollAnim", threshold = 0.3) {
             el.classList.remove("animInvisible")
           } else {
             const timeout = setTimeout(() => {
-              el.classList.add("animInvisible")
               el.classList.remove("animVisible")
+              el.classList.add("animInvisible")
             }, 200)
             timeoutMap.set(el, timeout)
           }
@@ -24,16 +28,19 @@ export default function ScrollAnim(selector = ".scrollAnim", threshold = 0.3) {
       },
       {
         threshold,
-        rootMargin: "0px 0px -30% 0px",
+        rootMargin: "0px 0px -20% 0px",
       }
     )
 
     const elements = document.querySelectorAll(selector)
-    elements.forEach((el) => observer.observe(el))
+    elements.forEach((el) => {
+      el.classList.add("animInvisible")
+      observer.observe(el)
+    })
 
     return () => {
       observer.disconnect()
       timeoutMap.forEach(clearTimeout)
     }
-  }, [selector, threshold])
+  }, [selector, threshold, trigger])
 }
