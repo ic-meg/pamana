@@ -1,8 +1,8 @@
 import Feather from "../Feather";
 
-const Intro = () => {
+const Intro = ({ setActiveTab }) => {
   return (
-    <Feather isScrollable={true}>
+    <Feather isScrollable={true} setActiveTab={setActiveTab}>
       <div></div>
     </Feather>
   );

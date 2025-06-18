@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import { Icons, Images, RizalTimelineImg } from "../../../assets"
 import Feather from "../Feather"
 
-export default function Timeline() {
+export default function Timeline( {setActiveTab} ) {
   const [rotation, setRotation] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -167,7 +167,7 @@ export default function Timeline() {
   }, [isZoomed, activeIndex, rotateToIndex])
 
   return (
-    <Feather>
+    <Feather setActiveTab={setActiveTab}>
       <div className="relative w-full h-full">
         <div className="relative w-[90%] flex flex-col m-2  mr-5 ml-auto gap-10">
           <div className="w-full flex flex-col gap-3 mb-1 pl-10 h-min-[600px]">

@@ -1,10 +1,16 @@
-import React from "react"
-import frame from "../../assets/icons/scroll.svg"
-import tallFrame from "../../assets/icons/line5.png"
-import feather from "../../assets/icons/feather.png"
+import frame from "../../assets/icons/scroll.svg";
+import tallFrame from "../../assets/icons/line5.png";
+import feather from "../../assets/icons/feather.png";
+import homeIcon from "../../assets/icons/Home.png";
 
-const Feather = ({ children, isScrollable = false }) => {
-  const frameToUse = isScrollable ? tallFrame : frame
+
+const Feather = ({
+  children,
+  isScrollable = false,
+  isHome = false,
+  setActiveTab,
+}) => {
+  const frameToUse = isScrollable ? tallFrame : frame;
 
   return (
     <div
@@ -44,10 +50,31 @@ const Feather = ({ children, isScrollable = false }) => {
         }`}
       />
 
+      {/* Home Button  */}
+      {!isHome && setActiveTab && (
+        <button
+          onClick={() => setActiveTab("home")}
+          className={`fixed right-[55px] w-16 h-16 rounded-full z-50 flex items-center justify-center 
+      bg-gradient-to-br from-[#f5ebd6] to-[#dfc69b]
+      border-[3px] border-[#5e4222]
+      shadow-[inset_0_2px_6px_rgba(255,255,255,0.6),inset_0_-2px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.25)]
+      hover:brightness-105 hover:scale-105
+      transition-all duration-300 ease-in-out
+      ${isScrollable ? "bottom-5" : "bottom-16"}`}
+          title="Back to Home"
+        >
+          <img
+            src={homeIcon}
+            alt="Home"
+            className="w-[36px] h-[36px] object-contain pointer-events-none drop-shadow-[1px_1px_2px_rgba(0,0,0,0.5)]"
+          />
+        </button>
+      )}
+
       {/* Page Content */}
       <div className="relative z-20">{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Feather
+export default Feather;

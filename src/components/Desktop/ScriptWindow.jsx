@@ -16,32 +16,36 @@ import Politics from "../Desktop/Members/politics";
 const ScriptWindow = () => {
   const [activeTab, setActiveTab] = useState("home");
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "intro":
-        return <Intro />;
-      case "biography":
-        return <Biography />;
-      case "literary":
-        return <Literary />;
-      case "legacy":
-        return <Legacy />;
-      case "timeline":
-        return <Timeline />;
-      case "quotes":
-        return <Quotes />;
-      case "photos":
-        return <Illustration />;
-      case "opinions":
-        return <Opinions />;
-      case "references":
-        return <References />;
-      case "political":
-        return <Politics />;
-      default:
-        return null;
-    }
-  };
+const renderContent = () => {
+  switch (activeTab) {
+    case "intro":
+      return <Intro setActiveTab={setActiveTab} />;
+    case "biography":
+      return <Biography setActiveTab={setActiveTab} />;
+    case "literary":
+      return <Literary setActiveTab={setActiveTab} />;
+    case "legacy":
+      return <Legacy setActiveTab={setActiveTab} />;
+    case "timeline":
+      return <Timeline setActiveTab={setActiveTab} />;
+    case "quotes":
+      return <Quotes setActiveTab={setActiveTab} />;
+    case "photos":
+      return <Illustration setActiveTab={setActiveTab} />;
+    case "opinions":
+      return <Opinions setActiveTab={setActiveTab} />;
+    case "references":
+      return <References setActiveTab={setActiveTab} />;
+    case "political":
+      return <Politics setActiveTab={setActiveTab} />;
+    case "home":
+      return <Home setActiveTab={setActiveTab} isHome={true} />; 
+    default:
+      return null;
+  }
+};
+
+
 
   return activeTab === "home" ? (
     <Home setActiveTab={setActiveTab} />
