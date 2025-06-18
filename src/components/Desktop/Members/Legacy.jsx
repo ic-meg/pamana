@@ -2,33 +2,33 @@ import React from "react";
 import Feather from "../Feather";
 import header from "../../../assets/images/header.png";
 import { Images } from "../../../assets";
+import useScrollAnim from "./LegacyScroll"; 
 
 const Legacy = ({ setActiveTab }) => {
+  useScrollAnim(); 
+
   return (
     <Feather isScrollable={true} setActiveTab={setActiveTab}>
       {/* Header Section */}
       <div className="relative w-full flex justify-center items-start">
-        {/* Legacy Text  */}
         <h1 className="absolute top-6 sm:top-10 text-4xl sm:text-7xl md:text-8xl font-bold tracking-wider font-great text-[#543312] text-right w-full z-10 pl-6 sm:pl-10">
           Legacy
         </h1>
-
-        {/* Header Image */}
         <img
           src={header}
           alt="Legacy Header"
           className="w-full max-w-5xl h-auto object-contain mt-[100px] sm:mt-[90px]"
         />
       </div>
+
       {/* Main Content */}
       <div className="pl-4 pr-2 sm:pl-6 sm:pr-4 mt-8 space-y-4 text-[#543312] text-left">
         {/* Section Title */}
-        <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase">
+        <h2 className="scrollAnim text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase">
           Heroism & National Pride
         </h2>
 
-        {/* Paragraph with image on right */}
-        <div className="relative flex flex-col sm:flex-row gap-4 items-start text-justify">
+        <div className="scrollAnim relative flex flex-col sm:flex-row gap-4 items-start text-justify">
           <p className="text-sm sm:text-base leading-relaxed font-serif flex-1">
             The Philippines' national hero, Dr. José Rizal, is revered for his
             bravery in opposing the Spanish colonial authorities in addition to
@@ -42,8 +42,6 @@ const Legacy = ({ setActiveTab }) => {
             us Filipinos, showing how we respect and value all the sacrifices
             and recognize what our country has been through.
           </p>
-
-          {/* Mic icon on the right */}
           <img
             src={Images.mic}
             alt="Megaphone"
@@ -51,17 +49,14 @@ const Legacy = ({ setActiveTab }) => {
           />
         </div>
 
-        {/* ===  Education Section === */}
-        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
-          {/* Icon on the left */}
+        {/* Education Section */}
+        <div className="scrollAnim flex flex-col sm:flex-row gap-4 items-start mt-12">
           <img
             src={Images.pencil}
             alt="Pencil Icon"
             className="w-[100px] sm:w-[140px] md:w-[180px] object-contain self-center sm:self-start sm:mt-10"
           />
-
-          {/* Text Content */}
-          <div className="flex-1 text-[#543312] text-left space-y-2">
+          <div className="flex-1 text-left space-y-2">
             <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase text-right text-justify">
               RA 1425: A Law Preserving His Legacy
             </h2>
@@ -82,10 +77,9 @@ const Legacy = ({ setActiveTab }) => {
           </div>
         </div>
 
-        {/* === Section 3: Cultural Pride and Identity === */}
-        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
-          {/* Text */}
-          <div className="flex-1 text-[#543312] text-left space-y-2">
+        {/* Cultural Pride Section */}
+        <div className="scrollAnim flex flex-col sm:flex-row gap-4 items-start mt-12">
+          <div className="flex-1 text-left space-y-2">
             <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase">
               Cultural Pride and Identity
             </h2>
@@ -98,8 +92,6 @@ const Legacy = ({ setActiveTab }) => {
               landmarks, and celebrate local traditions and art forms.
             </p>
           </div>
-
-          {/* Icon on right */}
           <img
             src={Images.barong}
             alt="Cultural Symbol"
@@ -107,17 +99,14 @@ const Legacy = ({ setActiveTab }) => {
           />
         </div>
 
-        {/* === Section 4: A Role Model for Integrity === */}
-        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
-          {/* Icon on left */}
+        {/* Integrity Section */}
+        <div className="scrollAnim flex flex-col sm:flex-row gap-4 items-start mt-12">
           <img
             src={Images.integrity}
             alt="Rizal Holding Torch"
             className="w-[100px] sm:w-[140px] md:w-[180px] object-contain self-center sm:self-start sm:mt-2"
           />
-
-          {/* Text */}
-          <div className="flex-1 text-[#543312] text-left space-y-2">
+          <div className="flex-1 text-left space-y-2">
             <h2 className="text-xl sm:text-2xl text-right font-bold font-coustard tracking-wider uppercase">
               A Role Model for Integrity
             </h2>
