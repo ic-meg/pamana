@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react"
 import Feather from "../Feather"
 import { Icons, Images, RizalLiterature } from "../../../assets"
 import PuzzleModal from "../PuzzleModal"
-import { Icon } from "@mui/material"
+import ScrollAnim from "../ScrollAnim"
+import "../ScrollAnim.css"
 
+const Literary = ({ setActiveTab }) => {
+  ScrollAnim()
 
-const Literary = ( {setActiveTab}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [filter, setFilter] = useState("novel")
   const [inputValue, setInputValue] = useState("")
@@ -86,6 +88,7 @@ const Literary = ( {setActiveTab}) => {
       ],
     },
   ]
+
   const filteredLiterature = literature.filter((item) => {
     const matchesType = item.type === filter
     const matchesSearch =
@@ -93,6 +96,7 @@ const Literary = ( {setActiveTab}) => {
       item.summary.toLowerCase().includes(searchQuery.toLowerCase())
     return matchesType && matchesSearch
   })
+
   useEffect(() => {
     if (inputValue.trim() === "") {
       setSearchQuery("")
@@ -139,10 +143,10 @@ const Literary = ( {setActiveTab}) => {
       />
       <Feather isScrollable={true} setActiveTab={setActiveTab}>
         <div className="relative w-[90%] justify-self-end mr-5 gap-5 flex flex-col">
-          <h1 className="text-2xl sm:text-2xl font-bold tracking-wider font-coustard align-middle text-center mt-7 m-7">
-            Literature
+          <h1 className="scrollAnim fadeInDown text-8xl font-great align-middle text-center m-7 mb-0">
+            Literary & Works
           </h1>
-          <div className="flex justify-evenly items-center w-full">
+          <div className="scrollAnim fadeInDown flex justify-evenly items-center w-full">
             {[
               { name: "Novels & Major Essays", type: "novel" },
               { name: "Poetry & Sonnets", type: "poem" },
@@ -198,14 +202,14 @@ const Literary = ( {setActiveTab}) => {
               <img
                 src={Icons.inkPen}
                 alt="paper"
-                className="w-[40vh] absolute -z-10 right-0 bottom-20"
+                className="scrollAnim fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
                 draggable={false}
               />
               <div className="w-[75%] mt-28 flex flex-col gap-5">
                 <div className="flex justify-between gap-2">
                   <div>
                     <h1
-                      className="text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
+                      className="scrollAnim fadeInUp text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
                       dangerouslySetInnerHTML={{
                         __html: highlightTextSafeHTML(
                           literature[activeLiterature].name,
@@ -214,25 +218,25 @@ const Literary = ( {setActiveTab}) => {
                       }}
                     />
 
-                    <h2 className="text-xl sm:text-2xl mt-2 tracking-wider">
+                    <h2 className="scrollAnim fadeInUp text-xl sm:text-2xl mt-2 tracking-wider">
                       {literature[activeLiterature].published}
                     </h2>
-                    <h2 className="text-xl sm:text-2xl mt-2 tracking-wider">
+                    <h2 className="scrollAnim fadeInUp text-xl sm:text-2xl mt-2 tracking-wider">
                       {literature[activeLiterature].subDetails}
                     </h2>
                   </div>
                   <img
                     src={literature[activeLiterature].img}
                     alt="literature"
-                    className="w-[300px] h-[300px]"
+                    className="scrollAnim fadeInRight w-[220px] h-[300px]"
                     draggable={false}
                   />
                 </div>
-                <h2 className="text-xl sm:text-2xl mt-2 font-bold tracking-wider font-coustard">
+                <h2 className="scrollAnim fadeInLeft text-xl sm:text-2xl mt-2 font-bold tracking-wider font-coustard">
                   Summary:
                 </h2>
                 <p
-                  className="pl-10 pr-10"
+                  className="scrollAnim fadeInUp pl-10 pr-10"
                   dangerouslySetInnerHTML={{
                     __html: highlightTextSafeHTML(
                       literature[activeLiterature].summary,
@@ -242,7 +246,7 @@ const Literary = ( {setActiveTab}) => {
                 />
 
                 <a
-                  className="font-bold tracking-wider text-sm font-extrabold underline mt-10"
+                  className="scrollAnim fadeInUp font-bold tracking-wider text-sm font-extrabold underline mt-10"
                   style={{
                     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
                   }}
@@ -253,7 +257,7 @@ const Literary = ( {setActiveTab}) => {
                   Test your brain with our puzzle and uncover fun facts!
                 </a>
                 <a
-                  className="flex gap-2 justify-center items-center w-fit h-fit mt-10"
+                  className="scrollAnim fadeInLeft flex gap-2 justify-center items-center w-fit h-fit mt-10"
                   onClick={() => {
                     setActiveLiterature(null)
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -272,7 +276,7 @@ const Literary = ( {setActiveTab}) => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
+            <div className="scrollAnim fadeInUp grid grid-cols-1 md:grid-cols-3 w-full gap-4">
               {filteredLiterature.map((lit, index) => (
                 <a onClick={() => setActiveLiterature(literature.indexOf(lit))}>
                   <div className="bg-no-repeat bg-cover bg-center relative flex justify-center">

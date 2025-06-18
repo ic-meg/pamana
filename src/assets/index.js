@@ -23,6 +23,7 @@ import pencil from "./images/pencil.png";
 import barong from "./images/barong.png";
 import integrity from "./images/integrity.png";
 
+
 import clockBody from "./images/clock-body.png";
 import clockHandHour from "./images/clock-hour-hand.png";
 import clockHandMinute from "./images/clock-minute-hand.png";
@@ -82,7 +83,10 @@ export const Images = {
   mic,
   pencil,
   integrity,
+  opinionsImg,
 };
+
+
 
 export const RizalTimelineImg = [
   rizal1,
