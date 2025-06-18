@@ -3,7 +3,7 @@ import Feather from "../Feather";
 
 const Illustration = () => {
     return (
-      <Feather isScrollable={false}>
+      <Feather isScrollable={true}>
         <div className="h-full overflow-hidden">
           <h1>Illustration Component</h1>
         </div>
