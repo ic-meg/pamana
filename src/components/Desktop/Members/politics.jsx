@@ -4,6 +4,8 @@ import rizalPortrait from "../../../assets/images/rizal18.png";
 // import parchmentImage from "../../../assets/images/parchment.png";
 import linesImage from "../../../assets/icons/lines.png"
 import scrollBg from "../../../assets/images/scroll-paper.png";
+import useScrollAnim from "../ScrollAnim";
+
 
 const scrollLabelStyle = {
   backgroundImage: `url(${scrollBg})`,
@@ -80,6 +82,7 @@ export default function RizalLegacy({setActiveTab}) {
     cards.forEach((card) => observer.observe(card));
   }, []);
 
+useScrollAnim();
   return (
     <Feather isScrollable={true} setActiveTab={setActiveTab}>
       <div
