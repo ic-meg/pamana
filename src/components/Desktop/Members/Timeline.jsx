@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react"
 import { Icons, Images, RizalTimelineImg } from "../../../assets"
 import Feather from "../Feather"
+import useScrollAnim from "./LegacyScroll"; 
 
 export default function Timeline( {setActiveTab} ) {
   const [rotation, setRotation] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isZoomed, setIsZoomed] = useState(false)
   const [handRotation, setHandRotation] = useState(0)
+  useScrollAnim(); 
 
   const rizalTimeline = [
     {
@@ -168,8 +170,8 @@ export default function Timeline( {setActiveTab} ) {
 
   return (
     <Feather setActiveTab={setActiveTab}>
-      <div className="relative w-full h-full">
-        <div className="relative w-[90%] flex flex-col m-2  mr-5 ml-auto gap-10">
+      <div className=" relative w-full h-full">
+        <div className="scrollAnim relative w-[90%] flex flex-col m-2  mr-5 ml-auto gap-10">
           <div className="w-full flex flex-col gap-3 mb-1 pl-10 h-min-[600px]">
             <h1
               className="text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard pl-24 w-full break-words"

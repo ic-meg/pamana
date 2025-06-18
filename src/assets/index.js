@@ -31,6 +31,8 @@ import rizalBirth from "./images/rizal-birth.png";
 import mask from "./images/brush.png";
 import oldpaper from "./images/oldpaper.png";
 import literaturePaper from "./images/literaturePaper.png";
+import opinionsImg from "./images/opinionsImg.png";
+
 
 import rizal1 from "./images/rizal1.png";
 import rizal2 from "./images/rizal2.png";
