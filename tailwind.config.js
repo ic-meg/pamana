@@ -7,6 +7,7 @@ export const theme = {
       courier: ["Courier New Custom", "monospace"],
       coustard: ["Coustard", "monospace"],
       prime: ["Prime", "monospace"],
+      great: ["Great", "monospace"]
     },
     keyframes: {
       scrollOpen: {
