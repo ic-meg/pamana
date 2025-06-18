@@ -1,8 +1,6 @@
-import React from "react"
 import Feather from "../Feather"
-import React, { useState } from "react";
-import Feather from "../Feather";
-import scrollOpen from "../../../assets/images/scroll-paper.png";
+import React, { useState } from "react"
+import scrollOpen from "../../../assets/images/scroll-paper.png"
 
 const scrolls = [
   {
@@ -21,10 +19,10 @@ const scrolls = [
     label: "Global Recognition",
     text: `Rizal's legacy lives on across the world with monuments in countries like Indonesia, India, and the U.S. Cities, parks, roads, and even a province bear his name—symbolizing how his impact reached beyond borders.`,
   },
-];
+]
 
 const ScrollItem = ({ label, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="relative flex items-center justify-center">
@@ -60,8 +58,8 @@ const ScrollItem = ({ label, text }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 const Legacy = ({ setActiveTab }) => {
   return (
@@ -84,5 +82,3 @@ const Legacy = ({ setActiveTab }) => {
 }
 
 export default Legacy
-
-export default Legacy;
