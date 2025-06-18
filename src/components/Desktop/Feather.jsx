@@ -45,8 +45,8 @@ const Feather = ({
         alt="Feather"
         className={`absolute z-10 ${
           isScrollable
-            ? "top-[-10px] left-[20px] w-40 sm:w-48 md:w-56"
-            : "top-[15px] left-[30px] w-36 sm:w-44 md:w-52"
+            ? "top-[-10px] left-[-10px] w-28 sm:top-[-10px] sm:left-[20px] sm:w-48 md:w-56"
+            : "top-[12px] left-[16px] w-24 sm:top-[15px] sm:left-[30px] sm:w-44 md:w-52"
         }`}
       />
 
@@ -54,13 +54,13 @@ const Feather = ({
       {!isHome && setActiveTab && (
         <button
           onClick={() => setActiveTab("home")}
-          className={`fixed right-[55px] w-16 h-16 rounded-full z-50 flex items-center justify-center 
-      bg-gradient-to-br from-[#f5ebd6] to-[#dfc69b]
-      border-[3px] border-[#5e4222]
-      shadow-[inset_0_2px_6px_rgba(255,255,255,0.6),inset_0_-2px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.25)]
-      hover:brightness-105 hover:scale-105
-      transition-all duration-300 ease-in-out
-      ${isScrollable ? "bottom-5" : "bottom-16"}`}
+          className={`fixed right-4 sm:right-[55px] w-14 sm:w-16 h-14 sm:h-16 rounded-full z-50 flex items-center justify-center 
+  bg-gradient-to-br from-[#f5ebd6] to-[#dfc69b]
+  border-[3px] border-[#5e4222]
+  shadow-[inset_0_2px_6px_rgba(255,255,255,0.6),inset_0_-2px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.25)]
+  hover:brightness-105 hover:scale-105
+  transition-all duration-300 ease-in-out
+  ${isScrollable ? "bottom-5" : "bottom-16"}`}
           title="Back to Home"
         >
           <img

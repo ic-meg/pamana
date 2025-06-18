@@ -1,34 +1,49 @@
 import { useEffect } from "react";
 
-export default function useScrollAnim(selector = ".scrollAnim") {
+export default function useScrollAnim(
+  selector = ".scrollAnim",
+  threshold = 0.3,
+  trigger = ""
+) {
   useEffect(() => {
+    const timeoutMap = new Map();
+    const elements = document.querySelectorAll(selector);
+
     const observer = new IntersectionObserver(
-      (entries) =>
+      (entries) => {
         entries.forEach((entry) => {
+          const el = entry.target;
+          const delay = parseInt(el.dataset.delay) || 0;
+
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-8");
+            clearTimeout(timeoutMap.get(el));
+            setTimeout(() => {
+              el.classList.add("animVisible");
+              el.classList.remove("animInvisible");
+            }, delay);
           } else {
-            entry.target.classList.remove("opacity-100", "translate-y-0");
-            entry.target.classList.add("opacity-0", "translate-y-8");
+            const timeout = setTimeout(() => {
+              el.classList.add("animInvisible");
+              el.classList.remove("animVisible");
+            }, 200);
+            timeoutMap.set(el, timeout);
           }
-        }),
+        });
+      },
       {
-        threshold: 0.2,
+        threshold,
+        rootMargin: "0px 0px -30% 0px",
       }
     );
 
-    document.querySelectorAll(selector).forEach((el) => {
-      el.classList.add(
-        "transition-all",
-        "duration-700",
-        "ease-out",
-        "opacity-0",
-        "translate-y-8"
-      );
+    elements.forEach((el) => {
+      el.classList.add("animInvisible"); // start hidden
       observer.observe(el);
     });
 
-    return () => observer.disconnect();
-  }, [selector]);
+    return () => {
+      observer.disconnect();
+      timeoutMap.forEach(clearTimeout);
+    };
+  }, [selector, threshold, trigger]);
 }
