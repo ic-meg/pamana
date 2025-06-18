@@ -3,7 +3,7 @@ import Feather from "../Feather";
 
 const Legacy = () => {
     return (
-      <Feather>
+      <Feather isScrollable={true}>
         <div>
           <h1>Legacy Component</h1>
         </div>

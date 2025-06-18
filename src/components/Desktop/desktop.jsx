@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import MonitorFrame from "../../components/MonitorFrame";
 import desktopBg from "../../assets/images/noli.png";
@@ -27,8 +27,8 @@ import Politics from "../Desktop/Members/politics"
 import Timeline from "./Members/Timeline";
 import { Icons } from "../../assets";
 
-import { AudioContext } from "../../contexts/AudioContext";
-import desktopMusic from "../../assets/sounds/bgmusic.MP3";
+// import { AudioContext } from "../../contexts/AudioContext";
+// import desktopMusic from "../../assets/sounds/bgmusic.MP3";
 
 import clickSound from "../../assets/sounds/mouse-click.mp3";
 import keySingle from "../../assets/sounds/key-single.MP3";
@@ -104,7 +104,7 @@ const Desktop = () => {
     {
       id: "bio",
       title: "Biography",
-      icon: Icons.bio,
+      icon: Icons.directory,
       isOpen: false,
       isMinimized: false,
       component: <Biography />,
@@ -112,7 +112,7 @@ const Desktop = () => {
     {
       id: "literary",
       title: "Literary Works",
-      icon: Icons.literary,
+      icon: Icons.quill,
       isOpen: false,
       isMinimized: false,
       component: <Literary />,
@@ -175,17 +175,17 @@ const Desktop = () => {
     },
   ]);
 
-  const { playTrack, toggleMute, isMuted, currentTrack } =
-    useContext(AudioContext);
+  // const { playTrack, toggleMute, isMuted, currentTrack } =
+  //   useContext(AudioContext);
 
-  useEffect(() => {
-    if (currentTrack !== desktopMusic) {
-      playTrack(desktopMusic, {
-        volume: 0.3,
-        loop: true,
-      });
-    }
-  }, [playTrack, currentTrack]);
+  // useEffect(() => {
+  //   if (currentTrack !== desktopMusic) {
+  //     playTrack(desktopMusic, {
+  //       volume: 0.3,
+  //       loop: true,
+  //     });
+  //   }
+  // }, [playTrack, currentTrack]);
 
   const handleAppClick = (id) => {
     setApps((prev) =>
@@ -306,8 +306,8 @@ const Desktop = () => {
         <Taskbar
           openApps={apps.filter((app) => app.isOpen)}
           onClickApp={handleAppClick}
-          isMuted={isMuted}
-          toggleMute={toggleMute}
+          // isMuted={isMuted}
+          // toggleMute={toggleMute}
           isMobile={isMobile}
         />
       </div>

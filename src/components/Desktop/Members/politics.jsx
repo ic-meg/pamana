@@ -4,11 +4,11 @@ import Feather from "../Feather";
 
 const Politics = () => {
     return (
-        <Feather> 
+      <Feather isScrollable={true}>
         <div>
-            <h1>Politics Component</h1>
+          <h1>Politics Component</h1>
         </div>
-        </Feather>
+      </Feather>
     );
 };
 

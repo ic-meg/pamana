@@ -236,18 +236,18 @@ export default function Timeline() {
             >
               {rizalTimeline.map((timeline, index) => {
                 const angle =
-                  (index / rizalTimeline.length) * 2 * Math.PI - Math.PI / 2
+                  (index / rizalTimeline.length) * 2 * Math.PI - Math.PI / 2;
 
-                const x = centerX + radius * Math.cos(angle) - 40
-                const y = centerY + radius * Math.sin(angle) - 10
+                const x = centerX + radius * Math.cos(angle) - 40;
+                const y = centerY + radius * Math.sin(angle) - 10;
 
                 return (
                   <button
                     key={index}
                     title={timeline.event}
                     onClick={(e) => {
-                      e.stopPropagation()
-                      rotateToIndex(index)
+                      e.stopPropagation();
+                      rotateToIndex(index);
                     }}
                     className={`absolute text-xs font-medium cursor-pointer hover:underline text-center w-[80px] text-3xl ${
                       index === activeIndex ? "text-[#764123]" : "text-white"
@@ -265,7 +265,7 @@ export default function Timeline() {
                       __html: timeline.date,
                     }}
                   />
-                )
+                );
               })}
             </div>
 
@@ -298,5 +298,5 @@ export default function Timeline() {
         </div>
       </div>
     </Feather>
-  )
+  );
 }

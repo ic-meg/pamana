@@ -1,7 +1,7 @@
 // export { default as newspaper } from "./assets/icons/old-newspaper.jpg"
 
 import newspaper from "./icons/old-newspaper.png"
-import oldclock from "./icons/old-clock.webp"
+import oldclock from "./icons/clock-body.png"
 import search from "./icons/search.png"
 
 //desktop icons
