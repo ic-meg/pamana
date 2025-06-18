@@ -53,6 +53,7 @@ import rizal16 from "./images/rizal16.jpg";
 import rizal17 from "./images/rizal17.png";
 
 import rizalLiterature from "./images/rizalLiterature.png";
+import elFili from "./images/el-fili.png";
 
 export const Icons = {
   newspaper,
@@ -86,6 +87,7 @@ export const Images = {
   pencil,
   integrity,
   opinionsImg,
+  elFili,
 };
 
 
@@ -111,3 +113,5 @@ export const RizalTimelineImg = [
 ];
 
 export const RizalLiterature = [rizalLiterature];
+
+export const ElFili = [elFili];
