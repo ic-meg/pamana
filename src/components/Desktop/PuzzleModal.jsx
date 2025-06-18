@@ -221,7 +221,12 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
 
         <div className="flex-1 overflow-y-auto w-full p-2 ">
           <div className="w-full h-full relative justify-center items-center flex-col flex">
-            <h1 onClick={() => setIsSolved(true)}>{details.name}</h1>
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: details.name,
+              }}
+              onClick={() => setIsSolved(true)}
+            />
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}

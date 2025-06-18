@@ -1,17 +1,15 @@
-import React from "react";
-import frame from "../../assets/icons/scroll.svg";
-import tallFrame from "../../assets/icons/line5.png";
-import feather from "../../assets/icons/feather.png";
+import React from "react"
+import frame from "../../assets/icons/scroll.svg"
+import tallFrame from "../../assets/icons/line5.png"
+import feather from "../../assets/icons/feather.png"
 
 const Feather = ({ children, isScrollable = false }) => {
-  const frameToUse = isScrollable ? tallFrame : frame;
+  const frameToUse = isScrollable ? tallFrame : frame
 
   return (
     <div
       className={`relative w-full text-[#543312] font-serif px-6 py-8 ${
-        isScrollable
-          ? "h-screen overflow-y-auto pr-2"
-          : "h-full overflow-hidden"
+        isScrollable ? "h-full overflow-y-auto pr-2" : "h-full overflow-hidden"
       }`}
     >
       {/* Background Frame */}
@@ -49,7 +47,7 @@ const Feather = ({ children, isScrollable = false }) => {
       {/* Page Content */}
       <div className="relative z-20">{children}</div>
     </div>
-  );
-};
+  )
+}
 
-export default Feather;
+export default Feather
