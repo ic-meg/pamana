@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { AudioContext } from '../contexts/AudioContext';
 import bgBrush from '../assets/images/bgBrush.jpg';
@@ -17,6 +17,13 @@ const BrushReveal = () => {
   const [fade, setFade] = useState(false);
   const [hover, setHover] = useState(false);
   
+ useEffect(() => {
+   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+   if (isMobile) {
+     navigate("/restricted");
+   }
+ }, [navigate]);
+
   // Fade in on mount
   useEffect(() => {
     setFade(true);

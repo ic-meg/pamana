@@ -9,6 +9,8 @@ import '../src/components/Desktop/desktop.css';
 import Play from './pages/play';
 import Desktop from './components/Desktop/desktop';
 import BrushReveal from './pages/play'; 
+import MobileRestricted from "./pages/MobileRestricted";
+
 
 import { AudioProvider } from './contexts/AudioContext'; //handles bg music
 
@@ -21,12 +23,14 @@ function App() {
   }, []);
 
   return (
-    <AudioProvider> 
+    <AudioProvider>
       <div className="grainy-overlay">
         <Routes>
-          <Route path="/" element={<Play />} />         
-          <Route path="/brush" element={<BrushReveal />} /> 
-          <Route path="/desktop" element={<Desktop />} />  
+          <Route path="/" element={<Play />} />
+          <Route path="/restricted" element={<MobileRestricted />} />
+
+          <Route path="/brush" element={<BrushReveal />} />
+          <Route path="/desktop" element={<Desktop />} />
         </Routes>
       </div>
     </AudioProvider>
