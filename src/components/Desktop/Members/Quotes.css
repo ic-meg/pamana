@@ -18,6 +18,14 @@
   margin-top: 8px;
 }
 
+.header-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+}
+
 .quotes-title {
   font-size: 2rem;
   color: #3d2b1f;
@@ -75,6 +83,21 @@
   background-repeat: no-repeat;
   background-position: center;
   animation: fadeInUp 0.7s ease both;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s; 
+  z-index: 1;
+
+}
+
+.quote-tile:hover {
+  transform: scale(1.05) rotate(-2deg) !important;
+  z-index: 50; 
+  
+}
+
+.quotes-row {
+  position: relative;
+  overflow: visible; 
 }
 
 .quote-mark {
@@ -103,6 +126,12 @@
   color: #3d2b1f;
   margin: 0 24px;
   line-height: 1.4;
+  transition: opacity 0.3s;
+  opacity: 0.85; 
+}
+
+.quote-tile:hover .quote-text {
+  opacity: 1; 
 }
 
 .quotes-container,
