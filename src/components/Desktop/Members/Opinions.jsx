@@ -10,7 +10,7 @@ const Opinions = ({ setActiveTab }) => {
   return (
     <Feather isScrollable={true} setActiveTab={setActiveTab}>
       <div className="relative w-[90%] justify-self-end mr-5 gap-2 flex flex-col">
-        <h1 className="scrollAnim fadeInDown text-2xl sm:text-2xl font-bold tracking-wider font-great align-middle text-center mt-7 m-7">
+        <h1 className="scrollAnim fadeInDown text-8xl font-great align-middle text-center m-7 mb-0">
           Interview & Opinios
         </h1>
         <div className="flex justify-between gap-10 w-[85%] m-auto">
@@ -24,7 +24,7 @@ const Opinions = ({ setActiveTab }) => {
           </div>
 
           <div className="scrollAnim fadeInRight flex flex-col items-center gap-5 justify-center">
-            <h2 className="text-xl font-bold tracking-wider font-coustard">
+            <h2 className="text-2xl font-bold tracking-wider font-coustard">
               RIZAL THAT I DON’T KNOW
             </h2>
             <p className="text-[1.2rem]">
@@ -40,7 +40,7 @@ const Opinions = ({ setActiveTab }) => {
         </div>
 
         <div className="scrollAnim fadeInUp">
-          <h2 className="text-xl font-bold tracking-wider font-coustard pl-10 mt-5">
+          <h2 className="text-xl font-bold tracking-wider font-coustard pl-10 mt-10">
             Good to Know: 
           </h2>
           <p className="text-[1.2rem]">

@@ -24,7 +24,7 @@ export default function ScrollAnim(selector = ".scrollAnim", threshold = 0.3) {
       },
       {
         threshold,
-        rootMargin: "0px 0px -10% 0px",
+        rootMargin: "0px 0px -30% 0px",
       }
     )
 

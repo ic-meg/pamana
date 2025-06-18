@@ -143,8 +143,8 @@ const Literary = ({ setActiveTab }) => {
       />
       <Feather isScrollable={true} setActiveTab={setActiveTab}>
         <div className="relative w-[90%] justify-self-end mr-5 gap-5 flex flex-col">
-          <h1 className="scrollAnim fadeInDown text-2xl sm:text-2xl font-bold tracking-wider font-great align-middle text-center mt-7 m-7">
-            Literature
+          <h1 className="scrollAnim fadeInDown text-8xl font-great align-middle text-center m-7 mb-0">
+            Literary & Works
           </h1>
           <div className="scrollAnim fadeInDown flex justify-evenly items-center w-full">
             {[
