@@ -187,13 +187,25 @@ const Desktop = () => {
   //   }
   // }, [playTrack, currentTrack]);
 
-  const handleAppClick = (id) => {
-    setApps((prev) =>
-      prev.map((app) =>
-        app.id === id ? { ...app, isOpen: true, isMinimized: false } : app
-      )
+  const handleAppClick = (clickedId) => {
+    setApps((prevApps) =>
+      prevApps.map((app) => {
+        if (app.id === clickedId) {
+          return {
+            ...app,
+            isOpen: true,
+            isMinimized: false, 
+          };
+        } else {
+          return {
+            ...app,
+            isMinimized: true, 
+          };
+        }
+      })
     );
   };
+
 
   const handleMinimize = (id) => {
     setApps((prev) =>
