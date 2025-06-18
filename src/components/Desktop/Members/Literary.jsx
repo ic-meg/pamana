@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react"
 import Feather from "../Feather"
 import { Icons, Images, RizalLiterature } from "../../../assets"
 import PuzzleModal from "../PuzzleModal"
-import ScrollAnim from "../ScrollAnim"
 import "../ScrollAnim.css"
+import ScrollAnim from "../ScrollAnim"
 
 const Literary = ({ setActiveTab }) => {
   ScrollAnim()
-
   const [isOpen, setIsOpen] = useState(false)
   const [filter, setFilter] = useState("novel")
   const [inputValue, setInputValue] = useState("")
@@ -141,53 +140,56 @@ const Literary = ({ setActiveTab }) => {
         closeModal={() => setIsOpen(false)}
         details={literature[activeLiterature]}
       />
+
       <Feather isScrollable={true} setActiveTab={setActiveTab}>
         <div className="relative w-[90%] justify-self-end mr-5 gap-5 flex flex-col">
-          <h1 className="scrollAnim fadeInDown text-8xl font-great align-middle text-center m-7 mb-0">
-            Literary & Works
-          </h1>
-          <div className="scrollAnim fadeInDown flex justify-evenly items-center w-full">
-            {[
-              { name: "Novels & Major Essays", type: "novel" },
-              { name: "Poetry & Sonnets", type: "poem" },
-              { name: "Drama", type: "drama" },
-            ].map((item, index) => (
-              <a
-                className={`text-base font-bold border-b-2 transition pl-3 pr-3
+          <div className="scrollAnim fadeInDown">
+            <h1 className="text-8xl font-great align-middle text-center m-7 mb-0">
+              Literary & Works
+            </h1>
+            <div className="flex justify-evenly items-center w-full">
+              {[
+                { name: "Novels & Major Essays", type: "novel" },
+                { name: "Poetry & Sonnets", type: "poem" },
+                { name: "Drama", type: "drama" },
+              ].map((item, index) => (
+                <a
+                  className={`text-base font-bold border-b-2 transition pl-3 pr-3
     ${
       filter === item.type
         ? "border-amber-700"
         : "border-amber-900 hover:border-amber-700"
     }
   `}
-                onClick={() => {
-                  setActiveLiterature(null)
-                  setFilter(item.type)
-                }}
-              >
-                {item.name}
-              </a>
-            ))}
+                  onClick={() => {
+                    setActiveLiterature(null)
+                    setFilter(item.type)
+                  }}
+                >
+                  {item.name}
+                </a>
+              ))}
 
-            <div className="border-2 border-amber-900 flex content-center w-fit">
-              <input
-                name="Search"
-                placeholder="Search"
-                className="bg-transparent outline-none border-t-0 border-l-0 border-b-0 border-r-1 border-amber-900 p-2 text-sm"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <button
-                style={{ padding: 5 }}
-                onClick={() => setSearchQuery(inputValue)}
-              >
-                <img
-                  src={Icons.search}
-                  alt="search"
-                  className="h-5 w-auto"
-                  draggable={false}
+              <div className="border-2 border-amber-900 flex content-center w-fit">
+                <input
+                  name="Search"
+                  placeholder="Search"
+                  className="bg-transparent outline-none border-t-0 border-l-0 border-b-0 border-r-1 border-amber-900 p-2 text-sm"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
                 />
-              </button>
+                <button
+                  style={{ padding: 5 }}
+                  onClick={() => setSearchQuery(inputValue)}
+                >
+                  <img
+                    src={Icons.search}
+                    alt="search"
+                    className="h-5 w-auto"
+                    draggable={false}
+                  />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -196,20 +198,20 @@ const Literary = ({ setActiveTab }) => {
               <img
                 src={Images.literaturePaper}
                 alt="paper"
-                className="w-full absolute  -z-10"
+                className="w-full absolute -z-10"
                 draggable={false}
               />
               <img
                 src={Icons.inkPen}
                 alt="paper"
-                className="scrollAnim fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
+                className=" fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
                 draggable={false}
               />
-              <div className="w-[75%] mt-28 flex flex-col gap-5">
+              <div className="scrollAnim fadeInUp w-[75%] mt-28 flex flex-col gap-5">
                 <div className="flex justify-between gap-2">
-                  <div>
+                  <div className="scrollAnim fadeInUp h-full flex flex-col">
                     <h1
-                      className="scrollAnim fadeInUp text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
+                      className="text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
                       dangerouslySetInnerHTML={{
                         __html: highlightTextSafeHTML(
                           literature[activeLiterature].name,
@@ -218,11 +220,15 @@ const Literary = ({ setActiveTab }) => {
                       }}
                     />
 
-                    <h2 className="scrollAnim fadeInUp text-xl sm:text-2xl mt-2 tracking-wider">
+                    <h2 className="text-xl sm:text-2xl mt-2 tracking-wider">
                       {literature[activeLiterature].published}
                     </h2>
-                    <h2 className="scrollAnim fadeInUp text-xl sm:text-2xl mt-2 tracking-wider">
+                    <h2 className="text-xl sm:text-2xl mt-2 tracking-wider">
                       {literature[activeLiterature].subDetails}
+                    </h2>
+
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-wider font-coustard mt-auto">
+                      Summary:
                     </h2>
                   </div>
                   <img
@@ -232,11 +238,8 @@ const Literary = ({ setActiveTab }) => {
                     draggable={false}
                   />
                 </div>
-                <h2 className="scrollAnim fadeInLeft text-xl sm:text-2xl mt-2 font-bold tracking-wider font-coustard">
-                  Summary:
-                </h2>
                 <p
-                  className="scrollAnim fadeInUp pl-10 pr-10"
+                  className="pl-10 pr-10"
                   dangerouslySetInnerHTML={{
                     __html: highlightTextSafeHTML(
                       literature[activeLiterature].summary,
@@ -276,10 +279,10 @@ const Literary = ({ setActiveTab }) => {
               </div>
             </div>
           ) : (
-            <div className="scrollAnim fadeInUp grid grid-cols-1 md:grid-cols-3 w-full gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
               {filteredLiterature.map((lit, index) => (
                 <a onClick={() => setActiveLiterature(literature.indexOf(lit))}>
-                  <div className="bg-no-repeat bg-cover bg-center relative flex justify-center">
+                  <div className="scrollAnim fadeInDown bg-no-repeat bg-cover bg-center relative flex justify-center">
                     <img
                       src={Images.literaturePaper}
                       alt="paper"

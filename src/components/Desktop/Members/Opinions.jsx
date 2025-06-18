@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import Feather from "../Feather"
 import { Icons, Images, RizalLiterature } from "../../../assets"
-import ScrollAnim from "../ScrollAnim"
 import "../ScrollAnim.css"
+import ScrollAnim from "../ScrollAnim"
 
 const Opinions = ({ setActiveTab }) => {
   ScrollAnim()
