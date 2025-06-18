@@ -12,7 +12,7 @@ const Opinions = ({ setActiveTab }) => {
         <h1 className="scrollAnim fadeInDown text-8xl font-great align-middle text-center m-7 mb-0">
           Interview & Opinios
         </h1>
-        <div className="flex justify-between gap-10 w-[85%] m-auto">
+        <div className="flex flex-col lg:flex-row justify-between gap-10 w-[85%] m-auto">
           <div className="scrollAnim fadeInLeft relative inline-block">
             <div className="absolute top-3 left-3 w-[97%] h-[97%] border border-black -z-10"></div>
             <img
@@ -23,7 +23,7 @@ const Opinions = ({ setActiveTab }) => {
           </div>
 
           <div className="scrollAnim fadeInRight flex flex-col items-center gap-5 justify-center">
-            <h2 className="text-2xl font-bold tracking-wider font-coustard">
+            <h2 className="text-2xl font-bold tracking-wider font-coustard text-center">
               RIZAL THAT I DON’T KNOW
             </h2>
             <p className="text-[1.2rem]">
@@ -56,7 +56,7 @@ const Opinions = ({ setActiveTab }) => {
         <h2 className="scrollAnim fadeInRight text-xl font-bold tracking-wider font-coustard text-right mt-5">
           OVERVIEW: 
         </h2>
-        <div className="scrollAnim fadeInLeft flex justify-between gap-5 m-auto">
+        <div className="scrollAnim fadeInLeft flex flex-col lg:flex-row justify-between gap-5 m-auto">
           <div className="flex flex-col items-center gap-5">
             <p className="text-[1.2rem]">
               Ambeth Ocampo has been  researching Dr. Jose Rizal since the late
@@ -70,7 +70,7 @@ const Opinions = ({ setActiveTab }) => {
               are now.
             </p>
           </div>
-          <div className="scrollAnim fadeInRight relative inline-block">
+          <div className="scrollAnim fadeInRight relative w-fit inline-block m-auto">
             <div className="absolute top-2 left-2 w-full h-full border border-black -z-10"></div>
             <iframe
               width="360"
@@ -84,7 +84,7 @@ const Opinions = ({ setActiveTab }) => {
             />
           </div>
         </div>
-        <p className="scrollAnim fadeInUp font-bold text-right text-[.8rem]">
+        <p className="scrollAnim fadeInUp font-bold text-right text-[.8rem] m-auto lg:mr-0">
           https://www.youtube.com/watch?v=MXw_mQu3jsI
         </p>
 

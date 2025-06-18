@@ -148,7 +148,7 @@ const Literary = ({ setActiveTab }) => {
             <h1 className="text-8xl font-great align-middle text-center m-7 mb-0">
               Literary & Works
             </h1>
-            <div className="flex justify-evenly items-center w-full">
+            <div className="grid grid-cols-2 lg:flex gap-5 justify-evenly items-center w-full">
               {[
                 { name: "Novels & Major Essays", type: "novel" },
                 { name: "Poetry & Sonnets", type: "poem" },
@@ -199,20 +199,20 @@ const Literary = ({ setActiveTab }) => {
               <img
                 src={Images.literaturePaper}
                 alt="paper"
-                className="w-full absolute -z-10"
+                className="w-full absolute -z-10  h-[110%] lg:h-auto"
                 draggable={false}
               />
               <img
                 src={Icons.inkPen}
-                alt="paper"
-                className="scrollAnim fadeInRight w-[40vh] absolute -z-10 right-0 bottom-20"
+                alt="inkPen"
+                className="scrollAnim fadeInRight w-[30vh] lg:w-[40vh] absolute -z-10 right-0 bottom-20"
                 draggable={false}
               />
               <div className=" w-[75%] mt-28 flex flex-col gap-5">
-                <div className="scrollAnim fadeInUp flex justify-between gap-2">
-                  <div className="scrollAnim fadeInUp h-full flex flex-col">
+                <div className="scrollAnim fadeInUp flex flex-col-reverse lg:flex-row justify-between gap-2 ">
+                  <div className="scrollAnim fadeInUp lg:h-full flex flex-col">
                     <h1
-                      className="text-[36px] sm:text-[55px] font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
+                      className="text-[36px] sm:text-[55px] text-center lg:text-left font-extrabold uppercase tracking-wide leading-none font-coustard break-words"
                       dangerouslySetInnerHTML={{
                         __html: highlightTextSafeHTML(
                           literature[activeLiterature].name,
@@ -228,14 +228,14 @@ const Literary = ({ setActiveTab }) => {
                       {literature[activeLiterature].subDetails}
                     </h2>
 
-                    <h2 className="text-xl sm:text-2xl font-bold tracking-wider font-coustard mt-auto">
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-wider font-coustard mt-10 lg:mt-auto">
                       Summary:
                     </h2>
                   </div>
                   <img
                     src={literature[activeLiterature].img}
                     alt="literature"
-                    className="scrollAnim fadeInRight w-[220px] h-[300px]"
+                    className="scrollAnim fadeInRight w-[220px] h-[300px] m-auto"
                     draggable={false}
                   />
                 </div>
@@ -281,7 +281,7 @@ const Literary = ({ setActiveTab }) => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 w-full gap-4">
               {filteredLiterature.map((lit, index) => (
                 <a onClick={() => setActiveLiterature(literature.indexOf(lit))}>
                   <div className="scrollAnim fadeInDown bg-no-repeat bg-cover bg-center relative flex justify-center">
@@ -294,43 +294,43 @@ const Literary = ({ setActiveTab }) => {
                     <img
                       src={Icons.inkPen}
                       alt="paper"
-                      className="w-[40%] absolute -z-10 -right-2 top-[50%]"
+                      className="w-[40%] absolute -z-10 -right-2 top-[30%] lg:top-[50%]"
                       draggable={false}
                     />
                     <div className="w-[75%] mt-10 flex flex-col gap-0">
-                      <div className="pr-20 gap-1 flex flex-col min-h-[4.6rem] min-w-0">
+                      <div className="lg:pr-20 gap-1 flex flex-col items-center lg:items-start min-h-[7rem] min-w-0">
+                        <img
+                          src={lit.img}
+                          alt="literature"
+                          className="w-auto h-[45%] lg:w-[4rem] lg:h-[5.5rem] lg:absolute right-10 mb-2"
+                          draggable={false}
+                        />
                         <h1
-                          className="text-[.5rem] font-extrabold uppercase tracking-wide leading-none font-coustard break-words whitespace-normal"
+                          className="text-[.8rem] lg:text-[1rem] text-center lg:text-start font-extrabold uppercase tracking-wide leading-none font-coustard break-words whitespace-normal"
                           dangerouslySetInnerHTML={{
                             __html: lit.name,
                           }}
                         />
-                        <h2 className="text-[.5rem] tracking-wider leading-tight uppercase">
+                        <h2 className="text-[.8rem] lg:text-[.6rem] text-center lg:text-start tracking-wider leading-tight uppercase">
                           {lit.published}
                         </h2>
-                        <h2 className="text-[.5rem] tracking-wider leading-tight uppercase">
+                        <h2 className="text-[.8rem] lg:text-[.6rem] text-center lg:text-start tracking-wider leading-tight uppercase">
                           {lit.subDetails}
                         </h2>
 
-                        <h2 className="text-[.5rem] mt-auto font-bold tracking-wider font-coustard uppercase">
+                        <h2 className="hidden lg:block text-[.5rem] mt-auto font-bold tracking-wider font-coustard uppercase">
                           Summary:
                         </h2>
                       </div>
 
-                      <img
-                        src={lit.img}
-                        alt="literature"
-                        className="w-[3rem] h-[4rem] absolute right-10"
-                        draggable={false}
-                      />
                       <p
-                        className="text-[.4rem] pl-2 leading-none pr-10 min-h-[9rem]"
+                        className="hidden lg:block text-[.4rem] pl-2 leading-none pr-10 min-h-[9rem]"
                         dangerouslySetInnerHTML={{
                           __html: lit.summary,
                         }}
                       />
                       <a
-                        className="font-bold tracking-wider text-[.3rem] font-extrabold underline leading-tight pr-[6rem]"
+                        className="hidden lg:visible font-bold tracking-wider text-[.3rem] font-extrabold underline leading-tight pr-[6rem]"
                         style={{
                           textShadow: "1px 1px 2px rgba(0, 0, 0, 0.6)",
                         }}
