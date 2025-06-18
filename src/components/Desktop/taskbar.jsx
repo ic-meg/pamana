@@ -102,7 +102,7 @@ const Taskbar = ({
 
           {/* Taskbar open app buttons */}
           <div
-            className="flex items-center gap-1 overflow-x-auto max-w-[65vw] sm:max-w-none pr-2 
+            className="flex items-center gap-1  max-w-[5vw] sm:max-w-none pr-2 
       scrollbar-thin scrollbar-thumb-[#A0A0A0] scrollbar-track-[#DFDFDF] 
       [&::-webkit-scrollbar]:h-[8px] 
       [&::-webkit-scrollbar-thumb]:rounded-md 
@@ -117,7 +117,7 @@ const Taskbar = ({
               <div key={app.id} className="relative group flex-shrink-0">
                 <button
                   onClick={() => onClickApp(app.id)}
-                  className={`flex items-center gap-1 h-[24px] px-2 py-[2px] text-xs font-['Courier_New_Custom',_monospace] bg-[#C0C0C0] max-w-[120px] truncate ${
+                  className={`flex items-center gap-1 h-[26px] px-3 py-[2px] text-xs font-['Courier_New_Custom',_monospace] bg-[#C0C0C0] min-w-[100px] max-w-[180px] truncate ${
                     app.isMinimized
                       ? "shadow-[inset_1px_1px_0px_#ffffff,inset_-1px_-1px_0px_#B0B0B0]"
                       : "shadow-[inset_-2px_-2px_1px_#ffffff,inset_2px_2px_1px_black]"
