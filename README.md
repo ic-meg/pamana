@@ -1,2 +1,2 @@
-#Pamana ni Jose Rizal
+# Pamana ni Jose Rizal
 An educational website about José Rizal's life and works
