@@ -49,13 +49,12 @@ const Quotes = () => {
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center',
+                      animationDelay: `${idx * 0.2}s`,
                     }}
                   >
-                    <span className="quote-text">
-                      <span className="quote-mark quote-mark-top">“</span>
-                      {quote}
+                     <span className="quote-mark quote-mark-top">“</span>
+                      <span className="quote-text">{quote}</span>
                       <span className="quote-mark quote-mark-bottom">”</span>
-                    </span>
                   </div>
                 ))}
               </div>
