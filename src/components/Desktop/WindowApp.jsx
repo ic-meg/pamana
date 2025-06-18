@@ -17,7 +17,7 @@ const WindowApp = ({ title, icon, onClose, onMinimize, children }) => {
     >
       <div
         ref={nodeRef}
-        className="absolute top-[30px] left-[7vw] w-[90vw] max-w-[980px] h-[80vh] max-h-[710px] md:max-h-[600px] border-[3px] border-[#543312] rounded-[20px] m-4 shadow-inner shadow-[4px_4px_0px_rgba(0,0,0,0.4)] bg-[#F0F0F0] z-50 font-coustard flex flex-col overflow-hidden"
+        className="absolute top-[30px] left-[7vw] w-[90vw] max-w-[980px] h-[150vh] max-h-[710px] md:max-h-[600px] border-[3px] border-[#543312] rounded-[20px] m-4 shadow-inner shadow-[4px_4px_0px_rgba(0,0,0,0.4)] bg-[#F0F0F0] z-50 font-coustard flex flex-col overflow-hidden"
         style={{
           backgroundImage: `url(${bgTexture})`,
           backgroundSize: "cover",
