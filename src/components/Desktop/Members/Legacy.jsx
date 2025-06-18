@@ -1,80 +1,137 @@
-import React, { useState } from "react";
+import React from "react";
 import Feather from "../Feather";
-import scrollOpen from "../../../assets/images/scroll-paper.png";
-
-const scrolls = [
-  {
-    label: "Heroism & National Pride",
-    text: `Dr. José Rizal is revered not just for his intellect but for his courage in standing against Spanish colonial rule. His kindness and love for the Filipino people sparked a revolution, and his legacy still influences our pride and identity as a nation.`,
-  },
-  {
-    label: "Philippine Revolution Impact",
-    text: `Even after his death, Rizal’s influence continued through the Philippine Revolution which led to our independence in 1898. His bravery laid the foundation for freedom, celebrated each year as Filipinos honor his courage and genius.`,
-  },
-  {
-    label: "Rizal in Education",
-    text: `To preserve his values and principles, educational institutions in the Philippines require students to study his life. Rizal’s teachings are seen as essential to shaping patriotism and are still being followed to this day.`,
-  },
-  {
-    label: "Global Recognition",
-    text: `Rizal's legacy lives on across the world with monuments in countries like Indonesia, India, and the U.S. Cities, parks, roads, and even a province bear his name—symbolizing how his impact reached beyond borders.`,
-  },
-];
-
-const ScrollItem = ({ label, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="relative flex items-center justify-center">
-      <img
-        src={scrollOpen}
-        alt="Scroll"
-        onClick={() => setIsOpen(!isOpen)}
-        className={`transition-all duration-700 ease-in-out cursor-pointer drop-shadow-xl
-          ${
-            isOpen
-              ? "fixed inset-0 m-auto w-[480px] sm:w-[540px] md:w-[600px] scale-110 rotate-0 opacity-100 z-50"
-              : "relative w-[240px] sm:w-[300px] md:w-[340px] scale-100 rotate-0 opacity-100"
-          }`}
-        style={isOpen ? { maxHeight: "90vh" } : {}}
-      />
-
-      {/* Show title label on scroll (when not open) */}
-      {!isOpen && (
-        <div className="absolute text-center text-[#543312] font-coustard font-bold text-xs sm:text-sm md:text-base max-w-[85%] px-2 break-words">
-          {label}
-        </div>
-      )}
-
-      {/* Full content on open */}
-      {isOpen && (
-        <div className="fixed inset-0 flex flex-col items-center justify-center z-50 pointer-events-none">
-          <h2 className="text-2xl font-bold mb-4 text-[#543312] font-coustard text-center drop-shadow-sm px-4">
-            {label}
-          </h2>
-          <p className="text-sm sm:text-base text-center text-[#3c2314] font-serif max-w-[500px] px-4">
-            {text}
-          </p>
-        </div>
-      )}
-    </div>
-  );
-};
+import header from "../../../assets/images/header.png";
+import { Images } from "../../../assets";
 
 const Legacy = ({ setActiveTab }) => {
   return (
-    <Feather isScrollable setActiveTab={setActiveTab}>
-      <div className="flex flex-col items-center justify-center gap-10 py-8 relative">
-        {/* Header */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#543312] font-coustard">
-          RIZAL'S LEGACY
+    <Feather isScrollable={true} setActiveTab={setActiveTab}>
+      {/* Header Section */}
+      <div className="relative w-full flex justify-center items-start">
+        {/* Legacy Text  */}
+        <h1 className="absolute top-6 sm:top-10 text-4xl sm:text-7xl md:text-8xl font-bold tracking-wider font-great text-[#543312] text-right w-full z-10 pl-6 sm:pl-10">
+          Legacy
         </h1>
 
-        {/* Scrolls Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6 z-10">
-          {scrolls.map((scroll, idx) => (
-            <ScrollItem key={idx} label={scroll.label} text={scroll.text} />
-          ))}
+        {/* Header Image */}
+        <img
+          src={header}
+          alt="Legacy Header"
+          className="w-full max-w-5xl h-auto object-contain mt-[100px] sm:mt-[90px]"
+        />
+      </div>
+      {/* Main Content */}
+      <div className="pl-4 pr-2 sm:pl-6 sm:pr-4 mt-8 space-y-4 text-[#543312] text-left">
+        {/* Section Title */}
+        <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase">
+          Heroism & National Pride
+        </h2>
+
+        {/* Paragraph with image on right */}
+        <div className="relative flex flex-col sm:flex-row gap-4 items-start text-justify">
+          <p className="text-sm sm:text-base leading-relaxed font-serif flex-1">
+            The Philippines' national hero, Dr. José Rizal, is revered for his
+            bravery in opposing the Spanish colonial authorities in addition to
+            his intellectual prowess. Rizal will always be remembered for his
+            kindness toward the Filipino people and the nation, even though his
+            passing sparked a revolution that overthrew the colonizer. With all
+            that being said, there are a lot of well-known actions and impacts
+            to remember that contributed to our life, the ones that marked and
+            we all live with. We should never forget, and we should remember. Up
+            until today, teachings and practices of Rizal are still followed by
+            us Filipinos, showing how we respect and value all the sacrifices
+            and recognize what our country has been through.
+          </p>
+
+          {/* Mic icon on the right */}
+          <img
+            src={Images.mic}
+            alt="Megaphone"
+            className="w-[120px] sm:w-[160px] md:w-[200px] object-contain self-center sm:self-start sm:-mt-10"
+          />
+        </div>
+
+        {/* ===  Education Section === */}
+        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
+          {/* Icon on the left */}
+          <img
+            src={Images.pencil}
+            alt="Pencil Icon"
+            className="w-[100px] sm:w-[140px] md:w-[180px] object-contain self-center sm:self-start sm:mt-10"
+          />
+
+          {/* Text Content */}
+          <div className="flex-1 text-[#543312] text-left space-y-2">
+            <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase text-right text-justify">
+              RA 1425: A Law Preserving His Legacy
+            </h2>
+            <p className="text-sm sm:text-base leading-relaxed font-serif">
+              Jose Rizal's legacy lives on not just through remembrance, but
+              through education — mandated by Republic Act No. 1425, also known
+              as the Rizal Law. This law requires all educational institutions
+              in the Philippines to offer courses about Rizal’s life, works, and
+              writings, particularly his novels <i>Noli Me Tangere</i> and{" "}
+              <i>El Filibusterismo</i>. Through this law, generations of
+              Filipinos continue to learn about the hero’s contributions,
+              instilling values of patriotism, civic responsibility, and a deep
+              understanding of Philippine history. Honoring Rizal is more than
+              just recognizing him as our national hero — it is about embracing
+              his ideals to help build a more conscious, united, and
+              forward-looking society.
+            </p>
+          </div>
+        </div>
+
+        {/* === Section 3: Cultural Pride and Identity === */}
+        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
+          {/* Text */}
+          <div className="flex-1 text-[#543312] text-left space-y-2">
+            <h2 className="text-xl sm:text-2xl font-bold font-coustard tracking-wider uppercase">
+              Cultural Pride and Identity
+            </h2>
+            <p className="text-sm sm:text-base leading-relaxed font-serif text-justify">
+              Rizal encouraged Filipinos to appreciate and preserve their
+              culture, language, and heritage. His writings highlighted Filipino
+              traditions and the importance of national pride. Even today, his
+              call to embrace the Filipino identity is echoed in efforts to
+              promote the use of Filipino languages, preserve historical
+              landmarks, and celebrate local traditions and art forms.
+            </p>
+          </div>
+
+          {/* Icon on right */}
+          <img
+            src={Images.barong}
+            alt="Cultural Symbol"
+            className="w-[100px] sm:w-[140px] md:w-[180px] object-contain self-center sm:self-start sm:-mt-2"
+          />
+        </div>
+
+        {/* === Section 4: A Role Model for Integrity === */}
+        <div className="flex flex-col sm:flex-row gap-4 items-start mt-12">
+          {/* Icon on left */}
+          <img
+            src={Images.integrity}
+            alt="Rizal Holding Torch"
+            className="w-[100px] sm:w-[140px] md:w-[180px] object-contain self-center sm:self-start sm:mt-2"
+          />
+
+          {/* Text */}
+          <div className="flex-1 text-[#543312] text-left space-y-2">
+            <h2 className="text-xl sm:text-2xl text-right font-bold font-coustard tracking-wider uppercase">
+              A Role Model for Integrity
+            </h2>
+            <p className="text-sm sm:text-base leading-relaxed font-serif text-justify">
+              Rizal’s life was defined by his unwavering commitment to peaceful
+              reform, honesty, and moral leadership. He chose education and
+              dialogue over violence, even when facing persecution, and
+              sacrificed his life for the good of his country. Rizal’s integrity
+              inspires individuals to act with accountability and selflessness,
+              reminding leaders to prioritize the welfare of the people. His
+              legacy encourages Filipinos to build a just and ethical society
+              through courage and principled action.
+            </p>
+          </div>
         </div>
       </div>
     </Feather>
