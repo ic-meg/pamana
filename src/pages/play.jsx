@@ -17,12 +17,6 @@ const BrushReveal = () => {
   const [fade, setFade] = useState(false);
   const [hover, setHover] = useState(false);
   
- useEffect(() => {
-   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-   if (isMobile) {
-     navigate("/restricted");
-   }
- }, [navigate]);
 
   // Fade in on mount
   useEffect(() => {
@@ -73,12 +67,18 @@ const BrushReveal = () => {
   };
 
   // Fade out, then navigate
-  const handleHistoryClick = () => {
+const handleHistoryClick = () => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    navigate("/restricted");
+  } else {
     setFade(false);
     setTimeout(() => {
-      navigate('/desktop');
-    }, 700); // match transition duration
-  };
+      navigate("/desktop");
+    }, 700);
+  }
+};
 
   return (
     <div
