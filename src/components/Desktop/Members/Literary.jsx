@@ -3,8 +3,8 @@ import Feather from "../Feather"
 import { Icons, Images, RizalLiterature } from "../../../assets"
 import PuzzleModal from "../PuzzleModal"
 
-const Literary = ({ setActiveTab }) => {
-const Literary = () => {
+
+const Literary = ( {setActiveTab}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const [activeLiterature, setActiveLiterature] = useState(0)
@@ -51,7 +51,7 @@ const Literary = () => {
         closeModal={() => setIsOpen(false)}
         details={literature[activeLiterature]}
       />
-      <Feather isScrollable={true}>
+      <Feather isScrollable={true} setActiveTab={setActiveTab}>
         <div className="relative w-[90%] justify-self-end mr-5 gap-5 flex flex-col">
           <h1 className="text-2xl sm:text-2xl font-bold tracking-wider font-coustard align-middle text-center mt-7 m-7">
             Literature
@@ -145,4 +145,4 @@ const Literary = () => {
   )
 }
 
-export default Literary;
+export default Literary
