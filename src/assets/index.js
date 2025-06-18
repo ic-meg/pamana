@@ -22,7 +22,7 @@ import clockHandHour from "./images/clock-hour-hand.png"
 import clockHandMinute from "./images/clock-minute-hand.png"
 import rizalBirth from "./images/rizal-birth.png"
 import mask from "./images/brush.png"
-import oldpaper from "./images/oldpaper.webp"
+import oldpaper from "./images/oldpaper.png"
 import literaturePaper from "./images/literaturePaper.png"
 
 import rizal1 from "./images/rizal1.png"

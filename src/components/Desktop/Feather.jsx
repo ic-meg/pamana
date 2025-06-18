@@ -18,6 +18,7 @@ const Feather = ({
     <div
       className={`relative w-full text-[#543312] font-serif px-6 py-8 ${
         isScrollable ? "h-full overflow-y-auto pr-2" : "h-full overflow-hidden"
+        isScrollable ? "h-full overflow-y-auto pr-2" : "h-full overflow-hidden"
       }`}
     >
       {/* Background Frame */}
@@ -76,7 +77,7 @@ const Feather = ({
       {/* Page Content */}
       <div className="relative z-20">{children}</div>
     </div>
-  );
-};
+  )
+}
 
-export default Feather;
+export default Feather
