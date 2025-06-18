@@ -48,7 +48,7 @@ const Home = ({ setActiveTab }) => {
         <div className="mt-8 ml-[90px] space-y-4">
           {/* First Row: 3 buttons */}
           <div className="flex gap-2">
-            {["INTRO", "BIOGRAPHY", "LITERARY"].map((label) => (
+            {["INTRO", "BIOGRAPHY", "LITERARY", "POLITICAL"].map((label) => (
               <button
                 key={label}
                 onClick={() => setActiveTab(label.toLowerCase())}
