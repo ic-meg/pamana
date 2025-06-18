@@ -1,8 +1,29 @@
 import React, { useEffect } from "react";
 import Feather from "../Feather";
 import rizalPortrait from "../../../assets/images/rizal18.png";
-import parchmentImage from "../../../assets/images/parchment.png";
-import linesImage from "../../../assets/images/lines.png";
+// import parchmentImage from "../../../assets/images/parchment.png";
+import linesImage from "../../../assets/icons/lines.png"
+import scrollBg from "../../../assets/images/scroll-paper.png";
+
+const scrollLabelStyle = {
+  backgroundImage: `url(${scrollBg})`,
+  backgroundSize: "100% 100%",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  width: "260px",
+  height: "100px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  fontSize: "16px",
+  color: "#3a1e00",
+  textAlign: "center",
+  padding: "0 20px",
+  marginBottom: "20px",
+  fontFamily: "serif",
+  lineHeight: "1.2",
+};
 
 const reforms = [
   {
@@ -42,7 +63,7 @@ const reforms = [
   },
 ];
 
-export default function RizalLegacy() {
+export default function RizalLegacy({setActiveTab}) {
   useEffect(() => {
     const cards = document.querySelectorAll(".scroll-effect");
     const observer = new IntersectionObserver(
@@ -60,32 +81,16 @@ export default function RizalLegacy() {
   }, []);
 
   return (
-    <Feather isScrollable={true}>
+    <Feather isScrollable={true} setActiveTab={setActiveTab}>
       <div
         style={{
           position: "relative",
-          padding: "60px 40px",
+          padding: "40px 30px",
           fontFamily: "'Coustard', serif",
           color: "#3d2e1e",
           overflow: "hidden",
         }}
       >
-        {/* Parchment Background */}
-        <img
-          src={parchmentImage}
-          alt="Parchment"
-          style={{
-            position: "absolute",
-            top: 370,
-            right: 170,
-            height: "70%",
-            width: "60%",
-            objectFit: "cover",
-            opacity: 0.6,
-            zIndex: -10,
-          }}
-        />
-
         {/* Header */}
         <div
           style={{
@@ -103,15 +108,23 @@ export default function RizalLegacy() {
           <div>
             <h1
               style={{
-                fontSize: "42px",
-                fontWeight: "700",
+                fontSize: "56px",
+                fontWeight: "300",
                 color: "#3a1e00",
                 margin: 0,
+                fontFamily: "coustard",
               }}
             >
               JOSÉ RIZAL
             </h1>
-            <p style={{ fontSize: "18px", lineHeight: "1.9", marginTop: "10px" }}>
+            <p
+              style={{
+                fontSize: "20px",
+                lineHeight: "1.9",
+                marginTop: "10px",
+                fontFamily: "serif",
+              }}
+            >
               A Filipino nationalist and intellectual, was a key figure in
               advocating for reforms during the Spanish colonial rule in the
               Philippines. His political beliefs centered around peaceful
@@ -121,106 +134,88 @@ export default function RizalLegacy() {
         </div>
 
         {/* Reform Rows */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+        <div style={{ position: "relative", padding: "0 20px" }}>
+          {/* ONE vertical line for the whole section */}
+          <img
+            src={linesImage}
+            alt="Divider"
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 0,
+              height: "100%",
+              width: "auto",
+            }}
+          />
+
           {reforms.map((pair, index) => (
             <div
               key={index}
               style={{
                 display: "flex",
-                justifyContent: "space-between",
                 alignItems: "flex-start",
-                gap: "20px",
+                justifyContent: "space-between",
+                gap: "40px",
+                marginBottom: "80px",
                 position: "relative",
               }}
             >
-              {/* Vertical Line Image */}
-              <img
-                src={linesImage}
-                alt="Vertical Line"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  bottom: 0,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  zIndex: 0,
-                  height: "100%",
-                  width: "auto",
-                  objectFit: "contain",
-                }}
-              />
-
-              {/* Left Reform */}
+              {/* LEFT COLUMN */}
               <div
-                className="scroll-effect"
                 style={{
-                  transform: "translateY(50px)",
-                  opacity: 0,
-                  transition: "transform 0.6s ease, opacity 0.6s ease",
-                  width: "48%",
-                  textAlign: "left",
-                  zIndex: 1,
+                  width: "45%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
                 }}
               >
-                <div
+                <div style={scrollLabelStyle}>{pair.left.title}</div>
+                <p
                   style={{
-                    backgroundColor: "#f9e4c8",
-                    padding: "6px 12px",
-                    borderRadius: "8px",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "#5a3210",
-                    border: "1px solid #d1a26c",
-                    boxShadow: "1px 1px 3px rgba(0,0,0,0.1)",
-                    marginBottom: "10px",
-                    width: "240px",
-                    minHeight: "40px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
+                    fontSize: "20px",
+                    lineHeight: "1.7",
+                    marginTop: "-12px",
+                    fontWeight: "normal",
+                    fontFamily: "serif",
                   }}
                 >
-                  {pair.left.title}
-                </div>
-                <p style={{ fontSize: "17px", lineHeight: "1.7", margin: 40 }}>
                   {pair.left.description}
                 </p>
               </div>
 
-              {/* Right Reform */}
+              {/* RIGHT COLUMN */}
               <div
-                className="scroll-effect"
                 style={{
-                  transform: "translateY(50px)",
-                  opacity: 0,
-                  transition: "transform 0.6s ease, opacity 0.6s ease",
-                  width: "48%",
-                  textAlign: "right",
-                  zIndex: 1,
+                  top: "100%",
+                  width: "45%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
                 }}
               >
                 <div
                   style={{
-                    backgroundColor: "#f9e4c8",
-                    padding: "6px 12px",
-                    borderRadius: "8px",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "#5a3210",
-                    border: "1px solid #d1a26c",
-                    boxShadow: "1px 1px 3px rgba(0,0,0,0.1)",
-                    marginBottom: "10px",
-                    width: "240px",
-                    minHeight: "40px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-end",
+                    ...scrollLabelStyle,
                     marginLeft: "auto",
+                    marginTop: "-55px",
                   }}
                 >
                   {pair.right.title}
                 </div>
-                <p style={{ fontSize: "17px", lineHeight: "1.7", margin: 40 }}>
+
+                <p
+                  style={{
+                    fontSize: "20px",
+                    lineHeight: "1.7",
+                    textAlign: "right",
+                    marginTop: "-12px",
+                    fontWeight: "normal",
+                    fontFamily: "serif",
+                  }}
+                >
                   {pair.right.description}
                 </p>
               </div>
