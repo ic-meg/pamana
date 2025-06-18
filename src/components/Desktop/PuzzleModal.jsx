@@ -19,7 +19,7 @@ import { Images } from "../../assets"
 
 const pieceSize = 80
 const rows = 4
-const cols = 4
+const cols = 3
 const totalPieces = rows * cols
 
 function shuffleArray(array) {
@@ -223,7 +223,7 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
           <div className="w-full h-full relative justify-center items-center flex-col flex">
             <h1
               dangerouslySetInnerHTML={{
-                __html: details.name,
+                __html: details?.name,
               }}
               onClick={() => setIsSolved(true)}
             />
@@ -241,7 +241,7 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
                     .slice(0, Math.ceil(trayPieces.length / 2))
                     .map((id) => (
                       <div key={`tray-${id}`} id={`tray-${id}`}>
-                        <Piece id={id} index={id} imageUrl={details.img} />
+                        <Piece id={id} index={id} imageUrl={details?.img} />
                       </div>
                     ))}
                 </div>
@@ -253,7 +253,7 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
 
                 <div className="relative">
                   <div
-                    className="grid gap-1 shadow-xl rounded-lg p-1 border-4 border-amber-900 justify-center"
+                    className="grid gap-1 shadow-xl rounded-lg p-1 border-4 border-amber-900 justify-center relative overflow-hidden"
                     style={{
                       gridTemplateColumns: `repeat(${cols}, ${pieceSize}px)`,
                       gridTemplateRows: `repeat(${rows}, ${pieceSize}px)`,
@@ -261,13 +261,31 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
                       height: rows * pieceSize + 25,
                     }}
                   >
+                    {/* Background layer */}
+                    <div
+                      className="absolute top-0 left-0 w-full h-full z-0"
+                      style={{
+                        backgroundImage: `url(${details?.img})`,
+                        backgroundSize: "100% 100%",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        opacity: 0.3, // adjust for guide visibility
+                        pointerEvents: "none", // so it doesn’t interfere with drag
+                      }}
+                    ></div>
+
+                    {/* Puzzle grid cells (pieces sit above the bg) */}
                     {grid.map((pieceId, i) => (
-                      <PuzzleCell key={`cell-${i}`} id={`cell-${i}`}>
+                      <PuzzleCell
+                        key={`cell-${i}`}
+                        id={`cell-${i}`}
+                        className="z-10"
+                      >
                         {pieceId !== null && (
                           <Piece
                             id={pieceId}
                             index={pieceId}
-                            imageUrl={details.img}
+                            imageUrl={details?.img}
                           />
                         )}
                       </PuzzleCell>
@@ -283,7 +301,7 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
                     .slice(Math.ceil(trayPieces.length / 2))
                     .map((id) => (
                       <div key={`tray-${id}`} id={`tray-${id}`}>
-                        <Piece id={id} index={id} imageUrl={details.img} />
+                        <Piece id={id} index={id} imageUrl={details?.img} />
                       </div>
                     ))}
                 </div>
@@ -292,7 +310,7 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
             {isSolved && (
               <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden z-50">
                 <img
-                  src={details.img}
+                  src={details?.img}
                   alt="Solved Puzzle"
                   className="w-full h-full object-cover rounded-lg absolute top-0 left-0 z-10"
                 />

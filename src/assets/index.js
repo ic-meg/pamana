@@ -16,6 +16,7 @@ import illustration from "./icons/Illustrations.png"
 import opinion from "./icons/Opinions.png"
 import references from "./icons/References.png"
 import inkPen from "./icons/inkPen.png"
+import back from "./icons/back.png"
 
 import clockBody from "./images/clock-body.png"
 import clockHandHour from "./images/clock-hour-hand.png"
@@ -60,6 +61,7 @@ export const Icons = {
   references,
   search,
   inkPen,
+  back,
 }
 
 export const Images = {
