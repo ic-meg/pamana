@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Feather from "../Feather"
-import { Icons, Images, RizalLiterature } from "../../../assets"
+import { Icons, Images, RizalLiterature, ElFili} from "../../../assets"
 import PuzzleModal from "../PuzzleModal"
 import "../ScrollAnim.css"
 import useScrollAnim from "../ScrollAnim"
@@ -55,7 +55,7 @@ const Literary = ({ setActiveTab }) => {
       summary: `Set 13 years after Noli, Ibarra returns as Simoun, a wealthy jeweler. He plots a violent revolution, planning sabotage via a bomb-lamp at a high-profile wedding attended by officials—aimed to incite a popular uprising Basilio is now a medical student, disillusioned after personal tragedies; he briefly joins Simoun but backs out. Simoun infiltrates the elite, fuels oppression through greed and abuse to provoke revolt, and nearly succeeds.
       <br/><br/>
       At the wedding, Basilio warns Isagani, who disposes of the lamp just in time—preventing mass bloodshed. Simoun flees to Padre Florentino, asks for forgiveness and understanding; realizing the revolution failed because it lacked virtue, he kills himself. Florentino disposes of Simoun’s wealth into the sea.`,
-      img: RizalLiterature[0],
+      img: ElFili[0],
       facts: [
         "Cats sleep for 70% of their lives!",
         "The Eiffel Tower can grow over 6 inches in summer.",
