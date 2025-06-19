@@ -1,6 +1,7 @@
 import React from "react";
 import Feather from "../Feather";
 import "./References.css";
+import useScrollAnim from "./LegacyScroll"; 
 
 const references = [
   {
@@ -46,15 +47,17 @@ const references = [
 ];
 
 const References = ({ setActiveTab }) => {
+  
+useScrollAnim();
   return (
     <Feather isScrollable={true} setActiveTab={setActiveTab}>
-      <h1 className="references-title">
-        <span className="pamana">Pamana’s</span>
-        <span className="label">References</span>
+      <h1 className="scrollAnim references-title">
+        <span className="scrollAnim pamana">Pamana’s</span>
+        <span className="scrollAnim label">References</span>
       </h1>
 
-      <ol className="reference-list">
-        {references.map(ref => (
+      <ol className="scrollAnim reference-list">
+        {references.map((ref) => (
           <li key={ref.id}>
             <p>{ref.text}</p>
             <a href={ref.link} target="_blank" rel="noopener noreferrer">
