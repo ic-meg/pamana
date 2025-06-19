@@ -173,7 +173,7 @@ const Literary = ({ setActiveTab }) => {
       subDetails: "Genre: oratorical speech",
       type: "poem",
       summary: `Rizal’s speech in Madrid praises the artistic success of Filipino painters Luna and Hidalgo, arguing that their work proves Filipino excellence in global arenas.`,
-      img: Images.rizalBirth,
+      img: RizalLiterature[9],
       facts: [
         "Delivered during a celebratory banquet in Madrid.",
         "Highlights intellectual potential of Filipinos.",
@@ -187,7 +187,7 @@ const Literary = ({ setActiveTab }) => {
       subDetails: "Genre: lyrical poem",
       type: "poem",
       summary: `A heartfelt piece found within the novel Noli Me Tangere, expressing Maria Clara's longing, purity, and pain in the midst of turmoil.`,
-      img: RizalLiterature[7],
+      img: RizalLiterature[10],
       facts: [
         "Part of Noli Me Tangere’s narrative arc.",
         "Depicts the feminine ideal in Filipino literature.",
@@ -201,7 +201,7 @@ const Literary = ({ setActiveTab }) => {
       subDetails: "Genre: satirical drama",
       type: "drama",
       summary: `A biting satire against Father Rodriguez who criticized Rizal’s ideas, portraying the friar as comically ignorant in a dream-like dialogue with saints.`,
-      img: RizalLiterature[3],
+      img: RizalLiterature[11],
       facts: [
         "Responds to Fr. Rodriguez's critique of Rizal’s works.",
         "Humorous dialogue mocking religious hypocrisy.",
@@ -215,7 +215,7 @@ const Literary = ({ setActiveTab }) => {
       subDetails: "Genre: love poem",
       type: "poem",
       summary: `A tender poem written for Josephine Bracken, Rizal’s common-law wife, expressing affection and hope in the face of imminent death.`,
-      img: RizalLiterature[7],
+      img: RizalLiterature[12],
       facts: [
         "One of Rizal’s most personal poems.",
         "Written shortly before his execution.",
@@ -229,7 +229,7 @@ const Literary = ({ setActiveTab }) => {
       subDetails: "Genre: lyrical poem",
       type: "poem",
       summary: `A heartfelt piece found within the novel Noli Me Tangere, expressing Maria Clara's longing, purity, and pain in the midst of turmoil.`,
-      img: RizalLiterature[7],
+      img: RizalLiterature[13],
       facts: [
         "Part of Noli Me Tangere’s narrative arc.",
         "Depicts the feminine ideal in Filipino literature.",

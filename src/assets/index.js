@@ -59,6 +59,11 @@ import rizalLiterature6 from "./images/rizalLiterature6.jpg";
 import rizalLiterature7 from "./images/rizalLiterature7.jpg";
 import rizalLiterature8 from "./images/rizalLiterature8.jpg";
 import rizalLiterature9 from "./images/rizalLiterature9.jpg";
+import rizalLiterature10 from "./images/rizalLiterature10.jpg";
+import rizalLiterature11 from "./images/rizalLiterature11.jpg";
+import rizalLiterature12 from "./images/rizalLiterature12.jpg";
+import rizalLiterature13 from "./images/rizalLiterature13.jpg";
+import rizalLiterature14 from "./images/rizalLiterature14.jpg";
 
 export const Icons = {
   newspaper,
@@ -123,4 +128,9 @@ export const RizalLiterature = [
   rizalLiterature7,
   rizalLiterature8,
   rizalLiterature9,
+  rizalLiterature10,
+  rizalLiterature11,
+  rizalLiterature12,
+  rizalLiterature13,
+  rizalLiterature14,
 ];
