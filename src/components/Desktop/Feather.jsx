@@ -3,7 +3,6 @@ import tallFrame from "../../assets/icons/line5.png";
 import feather from "../../assets/icons/feather.png";
 import homeIcon from "../../assets/icons/Home.png";
 
-
 const Feather = ({
   children,
   isScrollable = false,
@@ -33,8 +32,8 @@ const Feather = ({
               }
             : {
                 width: "100%",
-                height: "auto", 
-                maxHeight: "100%", 
+                height: "auto",
+                maxHeight: "100%",
                 objectFit: "contain",
                 top: 0,
               }

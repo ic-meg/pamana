@@ -4,7 +4,6 @@ import rizalPortrait from "../../../assets/images/rizal18.png";
 // import parchmentImage from "../../../assets/images/parchment.png";
 import linesImage from "../../../assets/icons/lines.png"
 import scrollBg from "../../../assets/images/scroll-paper.png";
-import useScrollAnim from "../ScrollAnim";
 
 
 const scrollLabelStyle = {
@@ -65,7 +64,9 @@ const reforms = [
   },
 ];
 
+
 export default function RizalLegacy({setActiveTab}) {
+
   useEffect(() => {
     const cards = document.querySelectorAll(".scroll-effect");
     const observer = new IntersectionObserver(
@@ -82,7 +83,7 @@ export default function RizalLegacy({setActiveTab}) {
     cards.forEach((card) => observer.observe(card));
   }, []);
 
-useScrollAnim();
+
   return (
     <Feather isScrollable={true} setActiveTab={setActiveTab}>
       <div
@@ -157,6 +158,7 @@ useScrollAnim();
           {reforms.map((pair, index) => (
             <div
               key={index}
+              className="scroll-effect"
               style={{
                 display: "flex",
                 alignItems: "flex-start",
