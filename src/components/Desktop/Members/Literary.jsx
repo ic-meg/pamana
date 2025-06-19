@@ -166,6 +166,77 @@ const Literary = ( {setActiveTab}) => {
         "Demonstrates Rizal’s growing symbolic language and use of dream sequences.",
       ],
     },
+    {
+      name: "Toast to Luna and Hidalgo <span class='font-light font-serif'>(Brindis a Luna y Hidalgo)</span>",
+      published: "Delivered: June 25, 1884",
+      subDetails: "Genre: oratorical speech",
+      type: "poem",
+      summary: `Rizal’s speech in Madrid praises the artistic success of Filipino painters Luna and Hidalgo, arguing that their work proves Filipino excellence in global arenas.`,
+      img: Images.rizalBirth,
+      facts: [
+        "Delivered during a celebratory banquet in Madrid.",
+        "Highlights intellectual potential of Filipinos.",
+        "Rizal used the moment to assert national pride.",
+        "Encouraged the Propaganda Movement’s leaders."
+      ]
+    },
+    {
+      name: "The Song of Maria Clara",
+      published: "Written: 1887",
+      subDetails: "Genre: lyrical poem",
+      type: "poem",
+      summary: `A heartfelt piece found within the novel Noli Me Tangere, expressing Maria Clara's longing, purity, and pain in the midst of turmoil.`,
+      img: RizalLiterature[7],
+      facts: [
+        "Part of Noli Me Tangere’s narrative arc.",
+        "Depicts the feminine ideal in Filipino literature.",
+        "Highly emotional and melodic.",
+        "Symbolizes love, faith, and sacrifice."
+      ]
+    },
+    {
+      name: "La Vision del Fray Rodriguez",
+      published: "Written: 1889",
+      subDetails: "Genre: satirical drama",
+      type: "drama",
+      summary: `A biting satire against Father Rodriguez who criticized Rizal’s ideas, portraying the friar as comically ignorant in a dream-like dialogue with saints.`,
+      img: RizalLiterature[3],
+      facts: [
+        "Responds to Fr. Rodriguez's critique of Rizal’s works.",
+        "Humorous dialogue mocking religious hypocrisy.",
+        "Promotes reason over blind dogma.",
+        "Written in Spanish with biting wit."
+      ]
+    },
+    {
+      name: "To Josephine",
+      published: "Written: 1896",
+      subDetails: "Genre: love poem",
+      type: "poem",
+      summary: `A tender poem written for Josephine Bracken, Rizal’s common-law wife, expressing affection and hope in the face of imminent death.`,
+      img: RizalLiterature[7],
+      facts: [
+        "One of Rizal’s most personal poems.",
+        "Written shortly before his execution.",
+        "Expresses longing, love, and calm resignation.",
+        "Reveals Rizal’s romantic and poetic side."
+      ]
+    },
+    {
+      name: "The Song of Maria Clara",
+      published: "Written: 1887",
+      subDetails: "Genre: lyrical poem",
+      type: "poem",
+      summary: `A heartfelt piece found within the novel Noli Me Tangere, expressing Maria Clara's longing, purity, and pain in the midst of turmoil.`,
+      img: RizalLiterature[7],
+      facts: [
+        "Part of Noli Me Tangere’s narrative arc.",
+        "Depicts the feminine ideal in Filipino literature.",
+        "Highly emotional and melodic.",
+        "Symbolizes love, faith, and sacrifice."
+      ]
+    },
+    
   ]
   const filteredLiterature = literature.filter((item) => {
     const matchesType = item.type === filter
