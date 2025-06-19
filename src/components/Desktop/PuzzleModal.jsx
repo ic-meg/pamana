@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react";
 import {
   DndContext,
   closestCenter,
@@ -7,32 +7,32 @@ import {
   useSensors,
   useDraggable,
   useDroppable,
-} from "@dnd-kit/core"
-import { CSS } from "@dnd-kit/utilities"
-import Draggable from "react-draggable"
+} from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
+import Draggable from "react-draggable";
 
-import monitorLandscape from "../../assets/images/apple.png"
-import monitorPortrait from "../../assets/images/portrait-apple.png"
-import beatGif from "../../assets/images/beat2.gif"
-import bgTexture from "../../assets/images/bg.jpg"
-import { Images } from "../../assets"
+import monitorLandscape from "../../assets/images/apple.png";
+import monitorPortrait from "../../assets/images/portrait-apple.png";
+import beatGif from "../../assets/images/beat2.gif";
+import bgTexture from "../../assets/images/bg.jpg";
+import { Images } from "../../assets";
 
-const pieceSize = 80
-const rows = 4
-const cols = 3
-const totalPieces = rows * cols
+const pieceSize = 80;
+const rows = 4;
+const cols = 3;
+const totalPieces = rows * cols;
 
 function shuffleArray(array) {
-  return [...array].sort(() => Math.random() - 0.5)
+  return [...array].sort(() => Math.random() - 0.5);
 }
 
 function Piece({ id, index, imageUrl }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useDraggable({ id })
+    useDraggable({ id });
 
-  const row = Math.floor(index / cols)
-  const col = index % cols
-  const backgroundPosition = `${-col * pieceSize}px ${-row * pieceSize}px`
+  const row = Math.floor(index / cols);
+  const col = index % cols;
+  const backgroundPosition = `${-col * pieceSize}px ${-row * pieceSize}px`;
 
   const style = {
     width: pieceSize,
@@ -47,13 +47,13 @@ function Piece({ id, index, imageUrl }) {
     backgroundColor: "white",
     cursor: "grab",
     zIndex: 5,
-  }
+  };
 
-  return <div ref={setNodeRef} {...attributes} {...listeners} style={style} />
+  return <div ref={setNodeRef} {...attributes} {...listeners} style={style} />;
 }
 
 function PuzzleCell({ id, children }) {
-  const { setNodeRef } = useDroppable({ id })
+  const { setNodeRef } = useDroppable({ id });
   return (
     <div
       ref={setNodeRef}
@@ -67,24 +67,24 @@ function PuzzleCell({ id, children }) {
     >
       {children}
     </div>
-  )
+  );
 }
 
 export default function PuzzleModal({ isOpen, closeModal, details }) {
-  const [trayPieces, setTrayPieces] = useState([])
-  const [grid, setGrid] = useState(Array(totalPieces).fill(null))
-  const [isSolved, setIsSolved] = useState(false)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-  const nodeRef = useRef(null)
-  const [randomFact, setRandomFact] = useState("")
+  const [trayPieces, setTrayPieces] = useState([]);
+  const [grid, setGrid] = useState(Array(totalPieces).fill(null));
+  const [isSolved, setIsSolved] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const nodeRef = useRef(null);
+  const [randomFact, setRandomFact] = useState("");
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const selectedMonitor = isMobile ? monitorPortrait : monitorLandscape
+  const selectedMonitor = isMobile ? monitorPortrait : monitorLandscape;
   const cutoutStyle = isMobile
     ? {
         top: "0.5%",
@@ -99,50 +99,50 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
         width: "97.5%",
         height: "89%",
         position: "absolute",
-      }
+      };
 
   useEffect(() => {
     const shuffled = shuffleArray(
       Array.from({ length: totalPieces }, (_, i) => i)
-    )
-    setTrayPieces(shuffled)
-    setGrid(Array(totalPieces).fill(null))
-    setIsSolved(false)
-  }, [details])
+    );
+    setTrayPieces(shuffled);
+    setGrid(Array(totalPieces).fill(null));
+    setIsSolved(false);
+  }, [details]);
 
   useEffect(() => {
-    const isComplete = grid.every((val, idx) => val === idx)
-    setIsSolved(isComplete)
+    const isComplete = grid.every((val, idx) => val === idx);
+    setIsSolved(isComplete);
 
     if (isComplete && details.facts?.length) {
-      const randomIndex = Math.floor(Math.random() * details.facts.length)
-      setRandomFact(details.facts[randomIndex])
+      const randomIndex = Math.floor(Math.random() * details.facts.length);
+      setRandomFact(details.facts[randomIndex]);
     }
-  }, [grid, details])
+  }, [grid, details]);
 
-  const sensors = useSensors(useSensor(PointerSensor))
+  const sensors = useSensors(useSensor(PointerSensor));
   const handleDragEnd = ({ active, over }) => {
-    if (!over) return
+    if (!over) return;
 
-    const activeId = active.id
-    const overId = over.id
+    const activeId = active.id;
+    const overId = over.id;
 
-    const fromTrayIndex = trayPieces.indexOf(activeId)
-    const toGridIndex = grid.findIndex((_, i) => `cell-${i}` === overId)
-    const fromGridIndex = grid.findIndex((id) => id === activeId)
+    const fromTrayIndex = trayPieces.indexOf(activeId);
+    const toGridIndex = grid.findIndex((_, i) => `cell-${i}` === overId);
+    const fromGridIndex = grid.findIndex((id) => id === activeId);
 
     if (fromTrayIndex !== -1 && toGridIndex !== -1) {
-      const newGrid = [...grid]
-      const existingPiece = newGrid[toGridIndex]
+      const newGrid = [...grid];
+      const existingPiece = newGrid[toGridIndex];
 
-      newGrid[toGridIndex] = activeId
-      setGrid(newGrid)
+      newGrid[toGridIndex] = activeId;
+      setGrid(newGrid);
 
-      const newTray = [...trayPieces]
-      newTray.splice(fromTrayIndex, 1)
-      if (existingPiece !== null) newTray.push(existingPiece)
-      setTrayPieces(newTray)
-      return
+      const newTray = [...trayPieces];
+      newTray.splice(fromTrayIndex, 1);
+      if (existingPiece !== null) newTray.push(existingPiece);
+      setTrayPieces(newTray);
+      return;
     }
 
     if (
@@ -150,40 +150,40 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
       toGridIndex !== -1 &&
       fromGridIndex !== toGridIndex
     ) {
-      const newGrid = [...grid]
-      const temp = newGrid[toGridIndex]
-      newGrid[toGridIndex] = activeId
-      newGrid[fromGridIndex] = temp
-      setGrid(newGrid)
-      return
+      const newGrid = [...grid];
+      const temp = newGrid[toGridIndex];
+      newGrid[toGridIndex] = activeId;
+      newGrid[fromGridIndex] = temp;
+      setGrid(newGrid);
+      return;
     }
 
     if (fromGridIndex !== -1 && overId.startsWith("tray")) {
-      const newGrid = [...grid]
-      newGrid[fromGridIndex] = null
-      setGrid(newGrid)
+      const newGrid = [...grid];
+      newGrid[fromGridIndex] = null;
+      setGrid(newGrid);
 
-      const newTray = [...trayPieces, activeId]
-      setTrayPieces(newTray)
+      const newTray = [...trayPieces, activeId];
+      setTrayPieces(newTray);
     }
-  }
+  };
 
   useEffect(() => {
     if (nodeRef.current && isOpen) {
-      const modal = nodeRef.current
-      const parent = modal.parentElement
+      const modal = nodeRef.current;
+      const parent = modal.parentElement;
       if (parent) {
-        const parentRect = parent.getBoundingClientRect()
-        const modalRect = modal.getBoundingClientRect()
-        const left = (parentRect.width - modalRect.width) / 2
-        const top = (parentRect.height - modalRect.height) / 2
-        modal.style.left = `${left}px`
-        modal.style.top = `${top}px`
+        const parentRect = parent.getBoundingClientRect();
+        const modalRect = modal.getBoundingClientRect();
+        const left = (parentRect.width - modalRect.width) / 2;
+        const top = (parentRect.height - modalRect.height) / 2;
+        modal.style.left = `${left}px`;
+        modal.style.top = `${top}px`;
       }
     }
-  }, [isOpen])
+  }, [isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <Draggable
@@ -325,10 +325,10 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
                     onClick={() => {
                       const shuffled = shuffleArray(
                         Array.from({ length: totalPieces }, (_, i) => i)
-                      )
-                      setTrayPieces(shuffled)
-                      setGrid(Array(totalPieces).fill(null))
-                      setIsSolved(false)
+                      );
+                      setTrayPieces(shuffled);
+                      setGrid(Array(totalPieces).fill(null));
+                      setIsSolved(false);
                     }}
                   >
                     Play Again
@@ -340,5 +340,5 @@ export default function PuzzleModal({ isOpen, closeModal, details }) {
         </div>
       </div>
     </Draggable>
-  )
+  );
 }

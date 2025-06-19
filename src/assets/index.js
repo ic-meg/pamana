@@ -23,7 +23,6 @@ import pencil from "./images/pencil.png";
 import barong from "./images/barong.png";
 import integrity from "./images/integrity.png";
 
-
 import clockBody from "./images/clock-body.png";
 import clockHandHour from "./images/clock-hour-hand.png";
 import clockHandMinute from "./images/clock-minute-hand.png";
@@ -32,7 +31,6 @@ import mask from "./images/brush.png";
 import oldpaper from "./images/oldpaper.png";
 import literaturePaper from "./images/literaturePaper.png";
 import opinionsImg from "./images/opinionsImg.png";
-
 
 import rizal1 from "./images/rizal1.png";
 import rizal2 from "./images/rizal2.png";
@@ -53,7 +51,14 @@ import rizal16 from "./images/rizal16.jpg";
 import rizal17 from "./images/rizal17.png";
 
 import rizalLiterature from "./images/rizalLiterature.png";
-import elFili from "./images/el-fili.png";
+import rizalLiterature2 from "./images/el-fili.png";
+import rizalLiterature3 from "./images/rizalLiterature3.png";
+import rizalLiterature4 from "./images/rizalLiterature4.jpg";
+import rizalLiterature5 from "./images/rizalLiterature5.jpg";
+import rizalLiterature6 from "./images/rizalLiterature6.jpg";
+import rizalLiterature7 from "./images/rizalLiterature7.jpg";
+import rizalLiterature8 from "./images/rizalLiterature8.jpg";
+import rizalLiterature9 from "./images/rizalLiterature9.jpg";
 
 export const Icons = {
   newspaper,
@@ -71,7 +76,6 @@ export const Icons = {
   search,
   inkPen,
   back,
-  
 };
 
 export const Images = {
@@ -87,10 +91,7 @@ export const Images = {
   pencil,
   integrity,
   opinionsImg,
-  elFili,
 };
-
-
 
 export const RizalTimelineImg = [
   rizal1,
@@ -112,6 +113,14 @@ export const RizalTimelineImg = [
   rizal17,
 ];
 
-export const RizalLiterature = [rizalLiterature];
-
-export const ElFili = [elFili];
+export const RizalLiterature = [
+  rizalLiterature,
+  rizalLiterature2,
+  rizalLiterature3,
+  rizalLiterature4,
+  rizalLiterature5,
+  rizalLiterature6,
+  rizalLiterature7,
+  rizalLiterature8,
+  rizalLiterature9,
+];
